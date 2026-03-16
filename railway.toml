@@ -3,7 +3,7 @@ builder = "nixpacks"
 buildCommand = "cd site/nebulous-neptune && npm install && npm run build"
 
 [deploy]
-startCommand = "cd site/nebulous-neptune && node server.js"
+startCommand = "cd site/nebulous-neptune && npx serve dist --listen tcp://0.0.0.0:${PORT:-3000}"
 healthcheckPath = "/"
 healthcheckTimeout = 30
 restartPolicyType = "on_failure"
