@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const kurse = [
+  {
+    name: 'KI-Grundlagen Intensivkurs',
+    anbieter: 'Coursera / DeepLearning.AI',
+    preis: '299 €',
+    dauer: '8 Wochen',
+    format: 'Online, selbst eingeteilt',
+    niveau: 'Einsteiger',
+    zertifikat: 'Ja',
+    foerderbar: true,
+    themen: 'Machine Learning, Neural Networks, Prompt Engineering',
+    abschluss: 'Zertifikat',
+  },
+  {
+    name: 'Generative KI für Professionals',
+    anbieter: 'IHK Digital Academy',
+    preis: '1.490 €',
+    dauer: '3 Monate',
+    format: 'Blended Learning (online + Präsenz)',
+    niveau: 'Fortgeschritten',
+    zertifikat: 'Ja',
+    foerderbar: true,
+    themen: 'LLMs, ChatGPT API, KI-Strategie, Use Cases',
+    abschluss: 'IHK-Zertifikat',
+  },
+  {
+    name: 'KI im Unternehmen einsetzen',
+    anbieter: 'Haufe Akademie',
+    preis: '890 €',
+    dauer: '2 Tage',
+    format: 'Präsenz oder Live-Online',
+    niveau: 'Einsteiger bis Fortgeschritten',
+    zertifikat: 'Teilnahmebescheinigung',
+    foerderbar: false,
+    themen: 'KI-Tools, Automatisierung, Datenschutz, Change Management',
+    abschluss: 'Teilnahmebescheinigung',
+  },
+];
+---
+
+<BaseLayout title="KI-Kurse vergleichen" description="Vergleichen Sie KI-Weiterbildungen transparent nach Preis, Dauer, Format und Förderbarkeit.">
+
+  <div class="max-w-6xl mx-auto px-4 py-12">
+
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold text-gray-900 mb-3">KI-Kurse im Vergleich</h1>
+      <p class="text-gray-500 max-w-2xl">Alle Angaben basieren auf öffentlich verfügbaren Informationen der Anbieter. Letzte Aktualisierung: März 2026.</p>
+    </div>
+
+    <!-- Tabelle Desktop -->
+    <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+      <table class="w-full text-sm text-left">
+        <thead class="bg-gray-50 border-b border-gray-200 text-xs uppercase tracking-wider text-gray-400">
+          <tr>
+            <th class="px-5 py-4 font-semibold">Kurs / Anbieter</th>
+            <th class="px-5 py-4 font-semibold">Preis</th>
+            <th class="px-5 py-4 font-semibold">Dauer</th>
+            <th class="px-5 py-4 font-semibold">Format</th>
+            <th class="px-5 py-4 font-semibold">Niveau</th>
+            <th class="px-5 py-4 font-semibold">Abschluss</th>
+            <th class="px-5 py-4 font-semibold">Förderbar</th>
+            <th class="px-5 py-4 font-semibold">Themen</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100 bg-white">
+          {kurse.map((kurs) => (
+            <tr class="hover:bg-gray-50 transition">
+              <td class="px-5 py-5">
+                <p class="font-semibold text-gray-900">{kurs.name}</p>
+                <p class="text-gray-400 text-xs mt-0.5">{kurs.anbieter}</p>
+              </td>
+              <td class="px-5 py-5 font-semibold text-gray-800">{kurs.preis}</td>
+              <td class="px-5 py-5 text-gray-600">{kurs.dauer}</td>
+              <td class="px-5 py-5 text-gray-600">{kurs.format}</td>
+              <td class="px-5 py-5">
+                <span class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">{kurs.niveau}</span>
+              </td>
+              <td class="px-5 py-5 text-gray-600">{kurs.abschluss}</td>
+              <td class="px-5 py-5">
+                {kurs.foerderbar ? (
+                  <span class="inline-flex items-center gap-1 text-[#10B981] font-medium text-xs">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Ja
+                  </span>
+                ) : (
+                  <span class="text-gray-400 text-xs">Nein</span>
+                )}
+              </td>
+              <td class="px-5 py-5 text-gray-500 text-xs max-w-xs">{kurs.themen}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-4 text-xs text-gray-400">
+      * Placeholder-Daten. Wir übernehmen keine Gewähr für Aktualität und Vollständigkeit.
+    </p>
+
+    <!-- Hinweis Förderung -->
+    <div class="mt-10 bg-[#10B981]/10 border border-[#10B981]/30 rounded-xl p-6 flex gap-4 items-start">
+      <svg class="w-6 h-6 text-[#10B981] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20A10 10 0 0012 2z" />
+      </svg>
+      <div>
+        <p class="font-semibold text-gray-800 mb-1">Bis zu 100% Förderung möglich</p>
+        <p class="text-sm text-gray-600">
+          Viele KI-Kurse sind über den Qualifizierungschancen-Gesetz (QCG), den Bildungsgutschein (AZAV) oder das Aufstiegs-BAföG förderbar.
+          Nutzen Sie unseren <a href="/foerderrechner" class="text-[#2563EB] underline hover:no-underline">Förderrechner</a>, um Ihren Anspruch zu prüfen.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</BaseLayout>

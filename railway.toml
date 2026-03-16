@@ -1,9 +1,9 @@
 [build]
 builder = "nixpacks"
-buildCommand = "cd site && npm install && npm run build"
+buildCommand = "cd site/nebulous-neptune && npm install && npm run build"
 
 [deploy]
-startCommand = "cd site && node server.js"
+startCommand = "cd site/nebulous-neptune && node server.js"
 healthcheckPath = "/"
 healthcheckTimeout = 30
 restartPolicyType = "on_failure"
