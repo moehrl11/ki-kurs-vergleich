@@ -1,0 +1,37 @@
+---
+interface Props {
+  name: string;
+  anbieter: string;
+  preis: string;
+  dauer: string;
+  zertifikat: string;
+  foerderbar: boolean;
+  fuerWen: string;
+  href?: string;
+}
+
+const { name, anbieter, preis, dauer, zertifikat, foerderbar, fuerWen, href = '#' } = Astro.props;
+---
+
+<div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md hover:border-[#2563EB] transition flex flex-col gap-4">
+  <div>
+    <p class="text-xs text-gray-400 mb-1">{anbieter}</p>
+    <h3 class="font-semibold text-gray-900">{name}</h3>
+  </div>
+
+  <div class="grid grid-cols-2 gap-2 text-sm">
+    <div><span class="text-gray-400">Preis</span><p class="font-semibold text-gray-800">{preis}</p></div>
+    <div><span class="text-gray-400">Dauer</span><p class="text-gray-700">{dauer}</p></div>
+    <div><span class="text-gray-400">Zertifikat</span><p class="text-gray-700">{zertifikat}</p></div>
+    <div><span class="text-gray-400">Für wen</span><p class="text-gray-700">{fuerWen}</p></div>
+  </div>
+
+  <div class="flex items-center justify-between mt-auto">
+    {foerderbar ? (
+      <span class="text-xs font-medium text-[#10B981] bg-green-50 px-2 py-1 rounded-full">✓ Förderbar</span>
+    ) : (
+      <span class="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full">Nicht förderbar</span>
+    )}
+    <a href={href} class="text-sm font-semibold text-[#2563EB] hover:underline">Zum Kurs →</a>
+  </div>
+</div>

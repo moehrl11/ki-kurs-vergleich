@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AffiliateCTA from '../../components/AffiliateCTA.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('ratgeber');
+  return articles.map(article => ({
+    params: { slug: article.data.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+const otherArticles = (await getCollection('ratgeber'))
+  .filter(a => a.data.slug !== article.data.slug)
+  .slice(0, 3);
+---
+
+<BaseLayout title={article.data.title} description={article.data.description}>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid lg:grid-cols-3 gap-10">
+
+      <article class="lg:col-span-2">
+        <div class="mb-8">
+          <div class="flex items-center gap-3 text-sm text-gray-400 mb-4">
+            <span>{article.data.date}</span>
+            {article.data.lesezeit && <span>· {article.data.lesezeit}</span>}
+          </div>
+          <h1 class="text-3xl font-bold text-gray-900 leading-snug mb-4">{article.data.title}</h1>
+          <p class="text-lg text-gray-500">{article.data.description}</p>
+        </div>
+
+        <div class="prose prose-gray max-w-none">
+          <Content />
+        </div>
+
+        <AffiliateCTA />
+      </article>
+
+      {otherArticles.length > 0 && (
+        <aside class="lg:col-span-1">
+          <div class="bg-white rounded-xl border border-gray-200 p-6 sticky top-24">
+            <h2 class="font-semibold text-gray-900 mb-4">Das könnte dich auch interessieren</h2>
+            <div class="flex flex-col gap-4">
+              {otherArticles.map(a => (
+                <a href={`/ratgeber/${a.data.slug}`} class="group">
+                  <p class="text-sm font-medium text-gray-800 group-hover:text-[#2563EB] transition leading-snug">{a.data.title}</p>
+                  {a.data.lesezeit && <p class="text-xs text-gray-400 mt-1">{a.data.lesezeit}</p>}
+                </a>
+              ))}
+            </div>
+          </div>
+        </aside>
+      )}
+
+    </div>
+  </div>
+</BaseLayout>

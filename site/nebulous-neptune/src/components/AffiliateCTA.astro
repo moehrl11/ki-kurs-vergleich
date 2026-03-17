@@ -1,0 +1,15 @@
+---
+interface Props {
+  text?: string;
+}
+
+const { text = 'Vergleiche jetzt die besten KI-Kurse in Deutschland — kostenlos und unabhängig.' } = Astro.props;
+---
+
+<div class="bg-[#2563EB] rounded-xl p-8 text-center text-white my-10">
+  <h3 class="text-xl font-bold mb-2">Bereit für deinen KI-Kurs?</h3>
+  <p class="text-blue-100 mb-6 max-w-xl mx-auto">{text}</p>
+  <a href="/vergleich" class="inline-block bg-white text-[#2563EB] font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition shadow-sm">
+    Kurse vergleichen →
+  </a>
+</div>
