@@ -24,7 +24,7 @@
 - [ ] foerderrechner.astro
 - [ ] quiz.astro
 - [ ] ueber-uns.astro
-- [ ] impressum.astro
+- [x] impressum.astro
 - [ ] datenschutz.astro
 
 ## Content
