@@ -25,7 +25,7 @@
 - [ ] quiz.astro
 - [ ] ueber-uns.astro
 - [x] impressum.astro
-- [ ] datenschutz.astro
+- [x] datenschutz.astro
 
 ## Content
 - [x] content.config.ts (Astro 6 Content Layer API)
