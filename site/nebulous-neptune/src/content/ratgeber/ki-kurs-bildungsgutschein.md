@@ -11,7 +11,7 @@ Stell dir vor, du absolvierst einen hochwertigen KI-Kurs — und zahlst dafür k
 
 In diesem Artikel erfährst du, wer Anspruch auf einen Bildungsgutschein hat, wie du ihn beantragst und welche KI-Kurse damit gefördert werden.
 
-> *Ich selbst habe den Bildungsgutschein bisher nicht genutzt — als Berufstätiger war das nicht mein Weg. Aber ich finde es eine fantastische Chance, die viel zu wenige kennen. Wer arbeitssuchend ist oder von Kündigung bedroht, sollte das unbedingt prüfen.*
+Ich selbst habe den Bildungsgutschein bisher nicht genutzt — als Berufstätiger war das nicht mein Weg. Aber ich finde es eine fantastische Chance, die viel zu wenige kennen. Wer arbeitssuchend ist oder von Kündigung bedroht, sollte das unbedingt prüfen.
 
 ---
 
