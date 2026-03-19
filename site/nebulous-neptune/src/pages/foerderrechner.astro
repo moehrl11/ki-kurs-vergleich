@@ -111,22 +111,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script is:inline>
-  let situation = '';
-  let groesse = '';
+  var situation = '';
+  var groesse = '';
 
   function weiterZuSchritt2() {
-    const val = document.querySelector('input[name="situation"]:checked');
+    var val = document.querySelector('input[name="situation"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
     situation = val.value;
-    if (situation === 'angestellt') {
-      zeige('schritt-2');
-    } else {
-      zeige('schritt-3');
-    }
+    zeige(situation === 'angestellt' ? 'schritt-2' : 'schritt-3');
   }
 
   function weiterZuSchritt3() {
-    const val = document.querySelector('input[name="groesse"]:checked');
+    var val = document.querySelector('input[name="groesse"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
     groesse = val.value;
     zeige('schritt-3');
@@ -138,15 +134,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   function ergebnisAnzeigen() {
-    const val = document.querySelector('input[name="budget"]:checked');
+    var val = document.querySelector('input[name="budget"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
 
-    const liste = document.getElementById('foerder-liste')!;
-    const items: string[] = [];
-
+    var items = [];
     if (situation === 'angestellt') {
-      const prozent = groesse === 'klein' ? '100%' : groesse === 'mittel' ? '50%' : '25%';
-      items.push(`✅ <strong>Qualifizierungschancengesetz (QCG):</strong> bis zu ${prozent} Förderung`);
+      var prozent = groesse === 'klein' ? '100%' : groesse === 'mittel' ? '50%' : '25%';
+      items.push('✅ <strong>Qualifizierungschancengesetz (QCG):</strong> bis zu ' + prozent + ' Förderung');
     }
     if (situation === 'arbeitssuchend') {
       items.push('✅ <strong>Bildungsgutschein:</strong> bis zu 2.400 € (100% der Kurskosten)');
@@ -161,23 +155,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       items.push('✅ <strong>BAFA-Förderung</strong> für Unternehmensberatung & Weiterbildung');
     }
 
-    liste.innerHTML = items.map(i => `<li>${i}</li>`).join('');
+    document.getElementById('foerder-liste').innerHTML = items.map(function(i) { return '<li>' + i + '</li>'; }).join('');
     zeige('ergebnis');
   }
 
   function neuStarten() {
-    document.querySelectorAll('input[type="radio"]').forEach((el) => {
-      el.checked = false;
-    });
+    document.querySelectorAll('input[type="radio"]').forEach(function(el) { el.checked = false; });
     situation = '';
     groesse = '';
     zeige('schritt-1');
   }
 
   function zeige(id) {
-    ['schritt-1','schritt-2','schritt-3','ergebnis'].forEach(s => {
-      document.getElementById(s)!.classList.add('hidden');
+    ['schritt-1','schritt-2','schritt-3','ergebnis'].forEach(function(s) {
+      document.getElementById(s).classList.add('hidden');
     });
-    document.getElementById(id)!.classList.remove('hidden');
+    document.getElementById(id).classList.remove('hidden');
   }
 </script>

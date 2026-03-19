@@ -127,88 +127,69 @@ const fragen = [
 </BaseLayout>
 
 <script is:inline>
-  const antworten = {};
+  var antworten = {};
 
-  function weiter(frageId: number) {
-    const val = document.querySelector(`input[name="frage${frageId}"]:checked`);
+  function weiter(frageId) {
+    var val = document.querySelector('input[name="frage' + frageId + '"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
-    antworten[`frage${frageId}`] = val.value;
+    antworten['frage' + frageId] = val.value;
     zeigeFrage(frageId + 1);
   }
 
-  function zurueck(frageId: number) {
+  function zurueck(frageId) {
     zeigeFrage(frageId - 1);
   }
 
-  function zeigeFrage(id: number) {
-    document.querySelectorAll('[id^="frage-"]').forEach(el => el.classList.add('hidden'));
-    document.getElementById('ergebnis')!.classList.add('hidden');
-    document.getElementById(`frage-${id}`)!.classList.remove('hidden');
-    const fortschritt = (id / 5) * 100;
-    document.getElementById('fortschritt-balken').style.width = `${fortschritt}%`;
-    document.getElementById('fortschritt-text')!.textContent = `Frage ${id} von 5`;
+  function zeigeFrage(id) {
+    document.querySelectorAll('[id^="frage-"]').forEach(function(el) { el.classList.add('hidden'); });
+    document.getElementById('ergebnis').classList.add('hidden');
+    document.getElementById('frage-' + id).classList.remove('hidden');
+    document.getElementById('fortschritt-balken').style.width = (id / 5 * 100) + '%';
+    document.getElementById('fortschritt-text').textContent = 'Frage ' + id + ' von 5';
   }
 
   function ergebnisAnzeigen() {
-    const val = document.querySelector('input[name="frage5"]:checked');
+    var val = document.querySelector('input[name="frage5"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
     antworten['frage5'] = val.value;
 
     document.getElementById('fortschritt-balken').style.width = '100%';
-    document.getElementById('fortschritt-text')!.textContent = 'Fertig!';
+    document.getElementById('fortschritt-text').textContent = 'Fertig!';
 
-    const { kurs, text } = empfehlung();
-    document.getElementById('empfehlung-titel')!.textContent = kurs;
-    document.getElementById('empfehlung-text')!.textContent = text;
+    var ergebnis = empfehlung();
+    document.getElementById('empfehlung-titel').textContent = ergebnis.kurs;
+    document.getElementById('empfehlung-text').textContent = ergebnis.text;
 
-    document.querySelectorAll('[id^="frage-"]').forEach(el => el.classList.add('hidden'));
-    document.getElementById('ergebnis')!.classList.remove('hidden');
+    document.querySelectorAll('[id^="frage-"]').forEach(function(el) { el.classList.add('hidden'); });
+    document.getElementById('ergebnis').classList.remove('hidden');
   }
 
   function empfehlung() {
-    const beruf = antworten['frage1'];
-    const erfahrung = antworten['frage2'];
-    const zeit = antworten['frage3'];
-    const ziel = antworten['frage5'];
+    var beruf = antworten['frage1'];
+    var erfahrung = antworten['frage2'];
+    var zeit = antworten['frage3'];
+    var ziel = antworten['frage5'];
 
     if (ziel === 'team' || beruf === 'management') {
-      return {
-        kurs: 'KI-Manager IHK Zertifikat — Haufe Akademie',
-        text: 'Für Führungskräfte und Teamverantwortliche ideal: praxisnah, IHK-zertifiziert und in 2 Tagen absolviert. Oft über das Qualifizierungschancengesetz förderbar.',
-      };
+      return { kurs: 'KI-Manager IHK Zertifikat — Haufe Akademie', text: 'Für Führungskräfte und Teamverantwortliche ideal: praxisnah, IHK-zertifiziert und in 2 Tagen absolviert. Oft über das Qualifizierungschancengesetz förderbar.' };
     }
     if (beruf === 'it' || erfahrung === 'technisch') {
-      return {
-        kurs: 'Certified AI Professional — XDi',
-        text: 'Mit technischem Vorwissen bist du bereit für einen tiefgehenden Kurs mit anerkanntem Zertifikat. XDi bietet solide Inhalte zu ML, LLMs und KI-Architektur.',
-      };
+      return { kurs: 'Certified AI Professional — XDi', text: 'Mit technischem Vorwissen bist du bereit für einen tiefgehenden Kurs mit anerkanntem Zertifikat. XDi bietet solide Inhalte zu ML, LLMs und KI-Architektur.' };
     }
     if (beruf === 'marketing') {
-      return {
-        kurs: 'KI im Marketing — Coursera',
-        text: 'Speziell für Marketing-Profis: KI-Tools für Content, Analyse und Automatisierung. Flexibel und erschwinglich — ideal zum Einstieg.',
-      };
+      return { kurs: 'KI im Marketing — Coursera', text: 'Speziell für Marketing-Profis: KI-Tools für Content, Analyse und Automatisierung. Flexibel und erschwinglich — ideal zum Einstieg.' };
     }
     if (zeit === 'lang' || ziel === 'karriere') {
-      return {
-        kurs: 'KI-Manager Fernstudium — IU Hochschule',
-        text: 'Wenn du tief einsteigen und eine Karriere in Richtung KI anstrebst, ist das IU-Fernstudium eine starke Wahl. 6 Monate, Hochschulzertifikat, oft förderbar.',
-      };
+      return { kurs: 'KI-Manager Fernstudium — IU Hochschule', text: 'Wenn du tief einsteigen und eine Karriere in Richtung KI anstrebst, ist das IU-Fernstudium eine starke Wahl. 6 Monate, Hochschulzertifikat, oft förderbar.' };
     }
-    // Default: Einsteiger
-    return {
-      kurs: 'ChatGPT für den Berufsalltag — Online-Kurs',
-      text: 'Der beste Einstieg für alle die schnell praktisch loslegen wollen. Günstig, sofort startbereit und ohne Vorkenntnisse machbar.',
-    };
+    return { kurs: 'ChatGPT für den Berufsalltag — Online-Kurs', text: 'Der beste Einstieg für alle die schnell praktisch loslegen wollen. Günstig, sofort startbereit und ohne Vorkenntnisse machbar.' };
   }
 
   function neuStarten() {
-    Object.keys(antworten).forEach(k => delete antworten[k]);
-    document.querySelectorAll('input[type="radio"]').forEach(el => {
-      el.checked = false;
-    });
+    antworten = {};
+    document.querySelectorAll('input[type="radio"]').forEach(function(el) { el.checked = false; });
     zeigeFrage(1);
     document.getElementById('fortschritt-balken').style.width = '20%';
-    document.getElementById('fortschritt-text')!.textContent = 'Frage 1 von 5';
+    document.getElementById('fortschritt-text').textContent = 'Frage 1 von 5';
   }
 </script>
