@@ -23,7 +23,7 @@
 - [x] ratgeber/index.astro (Übersichtsseite)
 - [ ] foerderrechner.astro
 - [ ] quiz.astro
-- [ ] ueber-uns.astro
+- [x] ueber-uns.astro (B2B Formular via Formspree — Placeholder ID)
 - [x] impressum.astro
 - [x] datenschutz.astro
 
