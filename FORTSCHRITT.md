@@ -21,8 +21,8 @@
 - [x] vergleich.astro (3 Kurse — noch nicht finale Spec mit 6 Kursen + Filter)
 - [x] ratgeber/[...slug].astro (dynamische Artikel-Seite)
 - [x] ratgeber/index.astro (Übersichtsseite)
-- [ ] foerderrechner.astro
-- [ ] quiz.astro
+- [x] foerderrechner.astro (JS-only, 3 Schritte, Ergebnis-Box)
+- [x] quiz.astro (5 Fragen, Fortschrittsbalken, if/else Empfehlung)
 - [x] ueber-uns.astro (B2B Formular via Formspree — Placeholder ID)
 - [x] impressum.astro
 - [x] datenschutz.astro

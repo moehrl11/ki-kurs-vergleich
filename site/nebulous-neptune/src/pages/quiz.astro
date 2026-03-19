@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const fragen = [
+  {
+    id: 1,
+    frage: 'Was beschreibt deinen Beruf am besten?',
+    optionen: [
+      { value: 'marketing', label: 'Marketing / Kommunikation' },
+      { value: 'it', label: 'IT / Entwicklung' },
+      { value: 'management', label: 'Management / Führung' },
+      { value: 'hr', label: 'HR / Personal' },
+      { value: 'andere', label: 'Anderes / Quereinsteiger' },
+    ],
+  },
+  {
+    id: 2,
+    frage: 'Wie viel Erfahrung hast du mit KI?',
+    optionen: [
+      { value: 'null', label: 'Null — ich fange bei 0 an' },
+      { value: 'chatgpt', label: 'Ich kenne ChatGPT' },
+      { value: 'nutzer', label: 'Ich nutze KI-Tools im Joballtag' },
+      { value: 'technisch', label: 'Ich habe technisches Vorwissen' },
+    ],
+  },
+  {
+    id: 3,
+    frage: 'Wie viel Zeit kannst du investieren?',
+    optionen: [
+      { value: 'kurz', label: '1–2 Tage (Kompaktkurs)' },
+      { value: 'mittel', label: '4–8 Wochen (berufsbegleitend)' },
+      { value: 'lang', label: '3–6 Monate (intensiv)' },
+    ],
+  },
+  {
+    id: 4,
+    frage: 'Was ist dein Budget?',
+    optionen: [
+      { value: 'kostenlos', label: 'Kostenlos oder vollständig gefördert' },
+      { value: 'klein', label: 'bis 500 € selbst bezahlt' },
+      { value: 'arbeitgeber', label: 'Mein Arbeitgeber / Unternehmen zahlt' },
+    ],
+  },
+  {
+    id: 5,
+    frage: 'Was ist dein Hauptziel?',
+    optionen: [
+      { value: 'job', label: 'KI im Job effizient nutzen' },
+      { value: 'zertifikat', label: 'KI-Zertifikat für den Lebenslauf' },
+      { value: 'karriere', label: 'Karrierewechsel in Richtung KI' },
+      { value: 'team', label: 'Mein Team schulen' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Kurs-Finder Quiz" description="5 Fragen — deine persönliche KI-Kursempfehlung. Kostenlos und sofort.">
+
+  <div class="max-w-2xl mx-auto px-4 py-12">
+
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold text-gray-900 mb-3">Welcher KI-Kurs passt zu dir?</h1>
+      <p class="text-gray-500">5 Fragen — deine persönliche Kursempfehlung.</p>
+    </div>
+
+    <!-- Fortschrittsbalken -->
+    <div class="mb-8">
+      <div class="flex justify-between text-xs text-gray-400 mb-2">
+        <span id="fortschritt-text">Frage 1 von 5</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2">
+        <div id="fortschritt-balken" class="bg-[#2563EB] h-2 rounded-full transition-all duration-300" style="width: 20%"></div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 p-8">
+
+      <!-- Fragen -->
+      {fragen.map((f, index) => (
+        <div id={`frage-${f.id}`} class={index === 0 ? '' : 'hidden'}>
+          <h2 class="text-lg font-semibold text-gray-900 mb-5">{f.frage}</h2>
+          <div class="space-y-3">
+            {f.optionen.map(opt => (
+              <label class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-[#2563EB] transition has-[:checked]:border-[#2563EB] has-[:checked]:bg-blue-50">
+                <input type="radio" name={`frage${f.id}`} value={opt.value} class="accent-[#2563EB]" />
+                <span class="text-sm font-medium text-gray-800">{opt.label}</span>
+              </label>
+            ))}
+          </div>
+          <div class="flex gap-3 mt-6">
+            {index > 0 && (
+              <button onclick={`zurueck(${f.id})`} class="flex-1 border border-gray-300 text-gray-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition">
+                ← Zurück
+              </button>
+            )}
+            <button
+              onclick={index < fragen.length - 1 ? `weiter(${f.id})` : 'ergebnisAnzeigen()'}
+              class="flex-1 bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+            >
+              {index < fragen.length - 1 ? 'Weiter →' : 'Meine Empfehlung →'}
+            </button>
+          </div>
+        </div>
+      ))}
+
+      <!-- Ergebnis -->
+      <div id="ergebnis" class="hidden">
+        <div class="bg-[#2563EB]/10 border border-[#2563EB]/20 rounded-xl p-6 mb-6">
+          <p class="text-xs font-semibold text-[#2563EB] uppercase tracking-wider mb-2">Deine Empfehlung</p>
+          <h2 id="empfehlung-titel" class="text-xl font-bold text-gray-900 mb-2"></h2>
+          <p id="empfehlung-text" class="text-sm text-gray-600 leading-relaxed"></p>
+        </div>
+        <a href="/vergleich" class="block text-center bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition mb-3">
+          Kurs ansehen →
+        </a>
+        <a href="/vergleich" class="block text-center text-sm text-gray-400 hover:text-[#2563EB] transition">
+          Alle Kurse vergleichen →
+        </a>
+        <button onclick="neuStarten()" class="mt-3 w-full text-xs text-gray-300 hover:text-gray-500 transition">
+          Quiz neu starten
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<script>
+  const antworten: Record<string, string> = {};
+
+  function weiter(frageId: number) {
+    const val = document.querySelector(`input[name="frage${frageId}"]:checked`) as HTMLInputElement;
+    if (!val) { alert('Bitte wähle eine Option.'); return; }
+    antworten[`frage${frageId}`] = val.value;
+    zeigeFrage(frageId + 1);
+  }
+
+  function zurueck(frageId: number) {
+    zeigeFrage(frageId - 1);
+  }
+
+  function zeigeFrage(id: number) {
+    document.querySelectorAll('[id^="frage-"]').forEach(el => el.classList.add('hidden'));
+    document.getElementById('ergebnis')!.classList.add('hidden');
+    document.getElementById(`frage-${id}`)!.classList.remove('hidden');
+    const fortschritt = (id / 5) * 100;
+    (document.getElementById('fortschritt-balken') as HTMLElement).style.width = `${fortschritt}%`;
+    document.getElementById('fortschritt-text')!.textContent = `Frage ${id} von 5`;
+  }
+
+  function ergebnisAnzeigen() {
+    const val = document.querySelector('input[name="frage5"]:checked') as HTMLInputElement;
+    if (!val) { alert('Bitte wähle eine Option.'); return; }
+    antworten['frage5'] = val.value;
+
+    (document.getElementById('fortschritt-balken') as HTMLElement).style.width = '100%';
+    document.getElementById('fortschritt-text')!.textContent = 'Fertig!';
+
+    const { kurs, text } = empfehlung();
+    document.getElementById('empfehlung-titel')!.textContent = kurs;
+    document.getElementById('empfehlung-text')!.textContent = text;
+
+    document.querySelectorAll('[id^="frage-"]').forEach(el => el.classList.add('hidden'));
+    document.getElementById('ergebnis')!.classList.remove('hidden');
+  }
+
+  function empfehlung(): { kurs: string; text: string } {
+    const beruf = antworten['frage1'];
+    const erfahrung = antworten['frage2'];
+    const zeit = antworten['frage3'];
+    const ziel = antworten['frage5'];
+
+    if (ziel === 'team' || beruf === 'management') {
+      return {
+        kurs: 'KI-Manager IHK Zertifikat — Haufe Akademie',
+        text: 'Für Führungskräfte und Teamverantwortliche ideal: praxisnah, IHK-zertifiziert und in 2 Tagen absolviert. Oft über das Qualifizierungschancengesetz förderbar.',
+      };
+    }
+    if (beruf === 'it' || erfahrung === 'technisch') {
+      return {
+        kurs: 'Certified AI Professional — XDi',
+        text: 'Mit technischem Vorwissen bist du bereit für einen tiefgehenden Kurs mit anerkanntem Zertifikat. XDi bietet solide Inhalte zu ML, LLMs und KI-Architektur.',
+      };
+    }
+    if (beruf === 'marketing') {
+      return {
+        kurs: 'KI im Marketing — Coursera',
+        text: 'Speziell für Marketing-Profis: KI-Tools für Content, Analyse und Automatisierung. Flexibel und erschwinglich — ideal zum Einstieg.',
+      };
+    }
+    if (zeit === 'lang' || ziel === 'karriere') {
+      return {
+        kurs: 'KI-Manager Fernstudium — IU Hochschule',
+        text: 'Wenn du tief einsteigen und eine Karriere in Richtung KI anstrebst, ist das IU-Fernstudium eine starke Wahl. 6 Monate, Hochschulzertifikat, oft förderbar.',
+      };
+    }
+    // Default: Einsteiger
+    return {
+      kurs: 'ChatGPT für den Berufsalltag — Online-Kurs',
+      text: 'Der beste Einstieg für alle die schnell praktisch loslegen wollen. Günstig, sofort startbereit und ohne Vorkenntnisse machbar.',
+    };
+  }
+
+  function neuStarten() {
+    Object.keys(antworten).forEach(k => delete antworten[k]);
+    document.querySelectorAll('input[type="radio"]').forEach(el => {
+      (el as HTMLInputElement).checked = false;
+    });
+    zeigeFrage(1);
+    (document.getElementById('fortschritt-balken') as HTMLElement).style.width = '20%';
+    document.getElementById('fortschritt-text')!.textContent = 'Frage 1 von 5';
+  }
+</script>

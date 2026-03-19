@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Förderrechner" description="Finde heraus wie viel Förderung du für deinen KI-Kurs bekommen kannst — kostenlos und in 2 Minuten.">
+
+  <div class="max-w-2xl mx-auto px-4 py-12">
+
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold text-gray-900 mb-3">KI-Kurs Förderrechner</h1>
+      <p class="text-gray-500">Finde heraus wie viel Förderung du für deinen KI-Kurs bekommen kannst.</p>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 p-8">
+
+      <!-- Schritt 1 -->
+      <div id="schritt-1">
+        <p class="text-xs font-semibold text-[#2563EB] uppercase tracking-wider mb-4">Schritt 1 von 3</p>
+        <h2 class="text-lg font-semibold text-gray-900 mb-5">Was beschreibt deine aktuelle Situation?</h2>
+        <div class="space-y-3">
+          {[
+            { value: 'angestellt', label: 'Ich bin angestellt' },
+            { value: 'arbeitssuchend', label: 'Ich bin arbeitssuchend' },
+            { value: 'selbststaendig', label: 'Ich bin selbstständig / Freelancer' },
+            { value: 'unternehmen', label: 'Mein Unternehmen zahlt' },
+          ].map(opt => (
+            <label class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-[#2563EB] transition has-[:checked]:border-[#2563EB] has-[:checked]:bg-blue-50">
+              <input type="radio" name="situation" value={opt.value} class="accent-[#2563EB]" />
+              <span class="text-sm font-medium text-gray-800">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+        <button onclick="weiterZuSchritt2()" class="mt-6 bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition w-full">
+          Weiter →
+        </button>
+      </div>
+
+      <!-- Schritt 2 (nur für Angestellte) -->
+      <div id="schritt-2" class="hidden">
+        <p class="text-xs font-semibold text-[#2563EB] uppercase tracking-wider mb-4">Schritt 2 von 3</p>
+        <h2 class="text-lg font-semibold text-gray-900 mb-5">Wie groß ist dein Unternehmen?</h2>
+        <div class="space-y-3">
+          {[
+            { value: 'klein', label: 'Unter 10 Mitarbeiter' },
+            { value: 'mittel', label: '10 bis 249 Mitarbeiter' },
+            { value: 'gross', label: '250 oder mehr Mitarbeiter' },
+          ].map(opt => (
+            <label class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-[#2563EB] transition has-[:checked]:border-[#2563EB] has-[:checked]:bg-blue-50">
+              <input type="radio" name="groesse" value={opt.value} class="accent-[#2563EB]" />
+              <span class="text-sm font-medium text-gray-800">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+        <div class="flex gap-3 mt-6">
+          <button onclick="zurueckZuSchritt1()" class="flex-1 border border-gray-300 text-gray-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition">
+            ← Zurück
+          </button>
+          <button onclick="weiterZuSchritt3()" class="flex-1 bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+            Weiter →
+          </button>
+        </div>
+      </div>
+
+      <!-- Schritt 3 -->
+      <div id="schritt-3" class="hidden">
+        <p class="text-xs font-semibold text-[#2563EB] uppercase tracking-wider mb-4">Schritt 3 von 3</p>
+        <h2 class="text-lg font-semibold text-gray-900 mb-5">Was darf der Kurs maximal kosten?</h2>
+        <div class="space-y-3">
+          {[
+            { value: 'kostenlos', label: 'Kostenlos' },
+            { value: 'bis500', label: 'bis 500 €' },
+            { value: 'bis2000', label: 'bis 2.000 €' },
+            { value: 'mehr', label: 'Über 2.000 € wenn gefördert' },
+          ].map(opt => (
+            <label class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-[#2563EB] transition has-[:checked]:border-[#2563EB] has-[:checked]:bg-blue-50">
+              <input type="radio" name="budget" value={opt.value} class="accent-[#2563EB]" />
+              <span class="text-sm font-medium text-gray-800">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+        <div class="flex gap-3 mt-6">
+          <button onclick="zurueckZuSchritt2()" class="flex-1 border border-gray-300 text-gray-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition">
+            ← Zurück
+          </button>
+          <button onclick="ergebnisAnzeigen()" class="flex-1 bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+            Ergebnis anzeigen →
+          </button>
+        </div>
+      </div>
+
+      <!-- Ergebnis -->
+      <div id="ergebnis" class="hidden">
+        <div class="bg-[#10B981]/10 border border-[#10B981]/30 rounded-xl p-6 mb-6">
+          <h2 class="text-lg font-bold text-gray-900 mb-4">Deine voraussichtlichen Fördermöglichkeiten:</h2>
+          <ul id="foerder-liste" class="space-y-3 text-sm text-gray-700"></ul>
+          <p class="text-xs text-gray-400 mt-4">
+            Dies sind Orientierungswerte. Die genaue Förderung hängt von deiner individuellen Situation ab.
+          </p>
+        </div>
+        <a href="/vergleich" class="block text-center bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+          Geförderte Kurse ansehen →
+        </a>
+        <button onclick="neuStarten()" class="mt-3 w-full text-sm text-gray-400 hover:text-gray-600 transition">
+          Neu starten
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<script>
+  let situation = '';
+  let groesse = '';
+
+  function weiterZuSchritt2() {
+    const val = document.querySelector('input[name="situation"]:checked') as HTMLInputElement;
+    if (!val) { alert('Bitte wähle eine Option.'); return; }
+    situation = val.value;
+    if (situation === 'angestellt') {
+      zeige('schritt-2');
+    } else {
+      zeige('schritt-3');
+    }
+  }
+
+  function weiterZuSchritt3() {
+    const val = document.querySelector('input[name="groesse"]:checked') as HTMLInputElement;
+    if (!val) { alert('Bitte wähle eine Option.'); return; }
+    groesse = val.value;
+    zeige('schritt-3');
+  }
+
+  function zurueckZuSchritt1() { zeige('schritt-1'); }
+  function zurueckZuSchritt2() {
+    zeige(situation === 'angestellt' ? 'schritt-2' : 'schritt-1');
+  }
+
+  function ergebnisAnzeigen() {
+    const val = document.querySelector('input[name="budget"]:checked') as HTMLInputElement;
+    if (!val) { alert('Bitte wähle eine Option.'); return; }
+
+    const liste = document.getElementById('foerder-liste')!;
+    const items: string[] = [];
+
+    if (situation === 'angestellt') {
+      const prozent = groesse === 'klein' ? '100%' : groesse === 'mittel' ? '50%' : '25%';
+      items.push(`✅ <strong>Qualifizierungschancengesetz (QCG):</strong> bis zu ${prozent} Förderung`);
+    }
+    if (situation === 'arbeitssuchend') {
+      items.push('✅ <strong>Bildungsgutschein:</strong> bis zu 2.400 € (100% der Kurskosten)');
+      items.push('✅ <strong>Aktivierungs- und Vermittlungsgutschein (AVGS)</strong> möglich');
+    }
+    if (situation === 'selbststaendig') {
+      items.push('✅ <strong>KOMPASS-Förderung</strong> für Selbstständige');
+      items.push('✅ <strong>Steuerliche Absetzbarkeit</strong> als Betriebsausgabe');
+    }
+    if (situation === 'unternehmen') {
+      items.push('✅ <strong>Qualifizierungschancengesetz (QCG):</strong> bis zu 100% für kleine Unternehmen');
+      items.push('✅ <strong>BAFA-Förderung</strong> für Unternehmensberatung & Weiterbildung');
+    }
+
+    liste.innerHTML = items.map(i => `<li>${i}</li>`).join('');
+    zeige('ergebnis');
+  }
+
+  function neuStarten() {
+    document.querySelectorAll('input[type="radio"]').forEach((el) => {
+      (el as HTMLInputElement).checked = false;
+    });
+    situation = '';
+    groesse = '';
+    zeige('schritt-1');
+  }
+
+  function zeige(id: string) {
+    ['schritt-1','schritt-2','schritt-3','ergebnis'].forEach(s => {
+      document.getElementById(s)!.classList.add('hidden');
+    });
+    document.getElementById(id)!.classList.remove('hidden');
+  }
+</script>
