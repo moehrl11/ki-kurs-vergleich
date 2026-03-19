@@ -1,7 +1,7 @@
 ---
 title: "KI Kurs mit Bildungsgutschein: So bekommst du bis zu 100% Förderung"
 description: "Wie du einen KI-Kurs über den Bildungsgutschein komplett kostenlos absolvieren kannst — mit Schritt-für-Schritt Anleitung und den besten geförderten Kursen."
-date: "2025-03-19"
+date: "2026-03-19"
 slug: "ki-kurs-bildungsgutschein"
 kategorie: "ratgeber"
 lesezeit: "8 Minuten"
