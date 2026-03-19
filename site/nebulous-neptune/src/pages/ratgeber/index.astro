@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articles = (await getCollection('ratgeber')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout title="Ratgeber" description="KI-Weiterbildung: Tipps, Förderung und Orientierung für deinen nächsten Kurs.">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold text-gray-900 mb-3">Ratgeber & Tipps</h1>
+      <p class="text-gray-500">Alles rund um KI-Weiterbildung — Förderung, Kursauswahl und Karriere.</p>
+    </div>
+
+    {articles.length === 0 ? (
+      <div class="bg-white rounded-xl border border-gray-200 p-10 text-center text-gray-400">
+        <p>Artikel folgen in Kürze.</p>
+      </div>
+    ) : (
+      <div class="flex flex-col gap-4">
+        {articles.map(article => (
+          <a
+            href={`/ratgeber/${article.data.slug}`}
+            class="group bg-white rounded-xl border border-gray-200 p-6 hover:border-[#2563EB] hover:shadow-md transition flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          >
+            <div>
+              <p class="text-xs text-gray-400 mb-1">{article.data.date}{article.data.lesezeit ? ` · ${article.data.lesezeit}` : ''}</p>
+              <h2 class="font-semibold text-gray-900 group-hover:text-[#2563EB] transition leading-snug mb-1">{article.data.title}</h2>
+              <p class="text-sm text-gray-500 line-clamp-2">{article.data.description}</p>
+            </div>
+            <span class="text-[#2563EB] font-semibold text-sm shrink-0">Lesen →</span>
+          </a>
+        ))}
+      </div>
+    )}
+
+  </div>
+</BaseLayout>

@@ -20,7 +20,7 @@
 - [x] index.astro (Homepage — vereinfacht, noch nicht finale Spec)
 - [x] vergleich.astro (3 Kurse — noch nicht finale Spec mit 6 Kursen + Filter)
 - [x] ratgeber/[...slug].astro (dynamische Artikel-Seite)
-- [ ] ratgeber/index.astro (Übersichtsseite)
+- [x] ratgeber/index.astro (Übersichtsseite)
 - [ ] foerderrechner.astro
 - [ ] quiz.astro
 - [ ] ueber-uns.astro
