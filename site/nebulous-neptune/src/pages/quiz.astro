@@ -171,18 +171,21 @@ const fragen = [
     var ziel = antworten['frage5'];
 
     if (ziel === 'team' || beruf === 'management') {
-      return { kurs: 'KI-Manager IHK Zertifikat — Haufe Akademie', text: 'Für Führungskräfte und Teamverantwortliche ideal: praxisnah, IHK-zertifiziert und in 2 Tagen absolviert. Oft über das Qualifizierungschancengesetz förderbar.' };
+      return { kurs: 'KI-Manager Seminar — Haufe Akademie', text: 'Für Führungskräfte und Teamverantwortliche ideal: praxisnah, IHK-Zertifikat möglich, in 2–3 Tagen absolviert. Oft über das Qualifizierungschancengesetz förderbar.' };
     }
     if (beruf === 'it' || erfahrung === 'technisch') {
-      return { kurs: 'Certified AI Professional — XDi', text: 'Mit technischem Vorwissen bist du bereit für einen tiefgehenden Kurs mit anerkanntem Zertifikat. XDi bietet solide Inhalte zu ML, LLMs und KI-Architektur.' };
+      return { kurs: 'Certified AI Professional — XDi', text: 'Mit technischem Vorwissen bist du bereit für einen tiefgehenden Kurs mit anerkanntem Zertifikat. AZAV-zertifiziert und in 2 Tagen absolviert.' };
     }
     if (beruf === 'marketing') {
-      return { kurs: 'KI im Marketing — Coursera', text: 'Speziell für Marketing-Profis: KI-Tools für Content, Analyse und Automatisierung. Flexibel und erschwinglich — ideal zum Einstieg.' };
+      return { kurs: 'ChatGPT & KI im Berufsalltag — Udemy', text: 'Günstig, sofort startbereit und praxisnah. Ideal für Marketing-Profis die KI-Tools schnell in den Joballtag integrieren wollen.' };
     }
     if (zeit === 'lang' || ziel === 'karriere') {
-      return { kurs: 'KI-Manager Fernstudium — IU Hochschule', text: 'Wenn du tief einsteigen und eine Karriere in Richtung KI anstrebst, ist das IU-Fernstudium eine starke Wahl. 6 Monate, Hochschulzertifikat, oft förderbar.' };
+      return { kurs: 'AI Engineering Bootcamp — neue fische', text: 'Wenn du tief einsteigen und eine Karriere in Richtung KI anstrebst: 6 Monate, IHK-Zertifikat, 100% mit Bildungsgutschein förderbar.' };
     }
-    return { kurs: 'ChatGPT für den Berufsalltag — Online-Kurs', text: 'Der beste Einstieg für alle die schnell praktisch loslegen wollen. Günstig, sofort startbereit und ohne Vorkenntnisse machbar.' };
+    if (antworten['frage4'] === 'kostenlos') {
+      return { kurs: 'KI-Manager Weiterbildung — SkillSprinters', text: 'Komplett kostenlos mit Bildungsgutschein. Kleine Gruppen (max. 18 Teilnehmer), IHK-Abschluss, live online — kein Video-Friedhof.' };
+    }
+    return { kurs: 'Elements of AI — IHK', text: 'Das beste kostenlose Einstiegsangebot auf dem Markt. IHK-Zertifikat inklusive, ohne Vorkenntnisse, flexibel im Selbststudium.' };
   }
 
   function neuStarten() {
