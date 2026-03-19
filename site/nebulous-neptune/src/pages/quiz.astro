@@ -126,11 +126,11 @@ const fragen = [
 
 </BaseLayout>
 
-<script>
-  const antworten: Record<string, string> = {};
+<script is:inline>
+  const antworten = {};
 
   function weiter(frageId: number) {
-    const val = document.querySelector(`input[name="frage${frageId}"]:checked`) as HTMLInputElement;
+    const val = document.querySelector(`input[name="frage${frageId}"]:checked`);
     if (!val) { alert('Bitte wähle eine Option.'); return; }
     antworten[`frage${frageId}`] = val.value;
     zeigeFrage(frageId + 1);
@@ -145,16 +145,16 @@ const fragen = [
     document.getElementById('ergebnis')!.classList.add('hidden');
     document.getElementById(`frage-${id}`)!.classList.remove('hidden');
     const fortschritt = (id / 5) * 100;
-    (document.getElementById('fortschritt-balken') as HTMLElement).style.width = `${fortschritt}%`;
+    document.getElementById('fortschritt-balken').style.width = `${fortschritt}%`;
     document.getElementById('fortschritt-text')!.textContent = `Frage ${id} von 5`;
   }
 
   function ergebnisAnzeigen() {
-    const val = document.querySelector('input[name="frage5"]:checked') as HTMLInputElement;
+    const val = document.querySelector('input[name="frage5"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
     antworten['frage5'] = val.value;
 
-    (document.getElementById('fortschritt-balken') as HTMLElement).style.width = '100%';
+    document.getElementById('fortschritt-balken').style.width = '100%';
     document.getElementById('fortschritt-text')!.textContent = 'Fertig!';
 
     const { kurs, text } = empfehlung();
@@ -165,7 +165,7 @@ const fragen = [
     document.getElementById('ergebnis')!.classList.remove('hidden');
   }
 
-  function empfehlung(): { kurs: string; text: string } {
+  function empfehlung() {
     const beruf = antworten['frage1'];
     const erfahrung = antworten['frage2'];
     const zeit = antworten['frage3'];
@@ -205,10 +205,10 @@ const fragen = [
   function neuStarten() {
     Object.keys(antworten).forEach(k => delete antworten[k]);
     document.querySelectorAll('input[type="radio"]').forEach(el => {
-      (el as HTMLInputElement).checked = false;
+      el.checked = false;
     });
     zeigeFrage(1);
-    (document.getElementById('fortschritt-balken') as HTMLElement).style.width = '20%';
+    document.getElementById('fortschritt-balken').style.width = '20%';
     document.getElementById('fortschritt-text')!.textContent = 'Frage 1 von 5';
   }
 </script>

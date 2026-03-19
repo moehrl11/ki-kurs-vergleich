@@ -110,12 +110,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 </BaseLayout>
 
-<script>
+<script is:inline>
   let situation = '';
   let groesse = '';
 
   function weiterZuSchritt2() {
-    const val = document.querySelector('input[name="situation"]:checked') as HTMLInputElement;
+    const val = document.querySelector('input[name="situation"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
     situation = val.value;
     if (situation === 'angestellt') {
@@ -126,7 +126,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   function weiterZuSchritt3() {
-    const val = document.querySelector('input[name="groesse"]:checked') as HTMLInputElement;
+    const val = document.querySelector('input[name="groesse"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
     groesse = val.value;
     zeige('schritt-3');
@@ -138,7 +138,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   function ergebnisAnzeigen() {
-    const val = document.querySelector('input[name="budget"]:checked') as HTMLInputElement;
+    const val = document.querySelector('input[name="budget"]:checked');
     if (!val) { alert('Bitte wähle eine Option.'); return; }
 
     const liste = document.getElementById('foerder-liste')!;
@@ -167,14 +167,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   function neuStarten() {
     document.querySelectorAll('input[type="radio"]').forEach((el) => {
-      (el as HTMLInputElement).checked = false;
+      el.checked = false;
     });
     situation = '';
     groesse = '';
     zeige('schritt-1');
   }
 
-  function zeige(id: string) {
+  function zeige(id) {
     ['schritt-1','schritt-2','schritt-3','ergebnis'].forEach(s => {
       document.getElementById(s)!.classList.add('hidden');
     });
