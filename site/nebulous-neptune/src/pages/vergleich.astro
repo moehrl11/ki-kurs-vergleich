@@ -3,106 +3,280 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const kurse = [
   {
-    name: 'KI-Grundlagen Intensivkurs',
-    anbieter: 'Coursera / DeepLearning.AI',
-    preis: '299 €',
-    dauer: '8 Wochen',
-    format: 'Online, selbst eingeteilt',
-    niveau: 'Einsteiger',
-    zertifikat: 'Ja',
-    foerderbar: true,
-    themen: 'Machine Learning, Neural Networks, Prompt Engineering',
-    abschluss: 'Zertifikat',
-  },
-  {
-    name: 'Generative KI für Professionals',
-    anbieter: 'IHK Digital Academy',
-    preis: '1.490 €',
-    dauer: '3 Monate',
-    format: 'Blended Learning (online + Präsenz)',
-    niveau: 'Fortgeschritten',
-    zertifikat: 'Ja',
-    foerderbar: true,
-    themen: 'LLMs, ChatGPT API, KI-Strategie, Use Cases',
+    id: 1,
+    name: 'Elements of AI',
+    anbieter: 'IHK / Universität Helsinki',
+    preis: 'Kostenlos',
+    preisNum: 0,
+    dauer: '15–20 Stunden',
+    format: 'Online, asynchron',
+    zielgruppe: 'Absoluter Einstieg',
     abschluss: 'IHK-Zertifikat',
+    foerderbar: 'nein',
+    kategorie: 'kostenlos',
+    highlight: 'Bestes kostenloses Einstiegsangebot — IHK-Zertifikat inklusive',
+    link: 'https://www.elementsofai.de',
   },
   {
-    name: 'KI im Unternehmen einsetzen',
+    id: 2,
+    name: 'KI-Manager Weiterbildung',
+    anbieter: 'Hilker Consulting',
+    preis: 'Kostenlos mit Bildungsgutschein',
+    preisNum: 0,
+    dauer: '8 Wochen (Vollzeit)',
+    format: 'Live-Online',
+    zielgruppe: 'Quereinsteiger / Arbeitssuchende',
+    abschluss: 'Zertifikat KI-Manager (HC)',
+    foerderbar: 'ja',
+    kategorie: 'gefoerdert',
+    highlight: '320 Unterrichtsstunden, Live-Workshops — kein Video-Friedhof',
+    link: 'https://www.hilker-consulting.de',
+  },
+  {
+    id: 3,
+    name: 'KI-Manager Weiterbildung',
+    anbieter: 'SkillSprinters',
+    preis: 'Kostenlos mit Bildungsgutschein',
+    preisNum: 0,
+    dauer: '4 Monate (Vollzeit)',
+    format: 'Live-Online (Zoom)',
+    zielgruppe: 'Quereinsteiger / Arbeitssuchende',
+    abschluss: 'IHK-Zertifikat + DEKRA/AZAV',
+    foerderbar: 'ja',
+    kategorie: 'gefoerdert',
+    highlight: 'Max. 18 Teilnehmer — IHK-Abschluss statt eigenem Trägerzertifikat',
+    link: 'https://www.skill-sprinters.de',
+  },
+  {
+    id: 4,
+    name: 'KI-Beauftragte/r',
+    anbieter: 'WBS Coding School',
+    preis: 'Kostenlos mit Bildungsgutschein',
+    preisNum: 0,
+    dauer: '8 Wochen (3h täglich)',
+    format: 'Online',
+    zielgruppe: 'Berufstätige Fach- und Führungskräfte',
+    abschluss: 'DEKRA-Zertifikat',
+    foerderbar: 'ja',
+    kategorie: 'gefoerdert',
+    highlight: 'Nur 3 Stunden täglich — ideal berufsbegleitend',
+    link: 'https://www.wbscodingschool.com',
+  },
+  {
+    id: 5,
+    name: 'KI-Manager Seminar',
     anbieter: 'Haufe Akademie',
-    preis: '890 €',
-    dauer: '2 Tage',
+    preis: 'ca. 1.490–1.990 €',
+    preisNum: 1490,
+    dauer: '2–3 Tage',
     format: 'Präsenz oder Live-Online',
-    niveau: 'Einsteiger bis Fortgeschritten',
-    zertifikat: 'Teilnahmebescheinigung',
-    foerderbar: false,
-    themen: 'KI-Tools, Automatisierung, Datenschutz, Change Management',
-    abschluss: 'Teilnahmebescheinigung',
+    zielgruppe: 'Führungskräfte / Entscheider',
+    abschluss: 'IHK-Zertifikat möglich',
+    foerderbar: 'teilweise',
+    kategorie: 'premium',
+    highlight: 'Einer der bekanntesten deutschen Weiterbilder — hohe Arbeitgeber-Anerkennung',
+    link: 'https://www.haufe-akademie.de',
+  },
+  {
+    id: 6,
+    name: 'Certified AI Professional',
+    anbieter: 'XDi',
+    preis: 'ca. 1.490 €',
+    preisNum: 1490,
+    dauer: '2 Tage',
+    format: 'Live-Online oder Präsenz',
+    zielgruppe: 'Fachkräfte mit wenig Zeit',
+    abschluss: 'XDi-Zertifikat (AZAV)',
+    foerderbar: 'ja',
+    kategorie: 'premium',
+    highlight: 'In 2 Tagen ein anerkanntes Zertifikat — AZAV-förderbar',
+    link: 'https://www.xd-i.com',
+  },
+  {
+    id: 7,
+    name: 'AI Engineering Bootcamp',
+    anbieter: 'neue fische',
+    preis: 'Kostenlos mit Bildungsgutschein',
+    preisNum: 0,
+    dauer: '6 Monate (Vollzeit)',
+    format: 'Online oder Campus',
+    zielgruppe: 'Karrierewechsler',
+    abschluss: 'IHK-Zertifikat (AZAV)',
+    foerderbar: 'ja',
+    kategorie: 'gefoerdert',
+    highlight: 'Direkte Verbindung zu Arbeitgebern, kleine Gruppen (~15 Teilnehmer)',
+    link: 'https://www.neuefische.de',
+  },
+  {
+    id: 8,
+    name: 'KI und Prompt Engineering',
+    anbieter: 'IU Akademie',
+    preis: 'Ab ca. 299 €',
+    preisNum: 299,
+    dauer: 'Flexibel (Selbststudium)',
+    format: 'Online, asynchron',
+    zielgruppe: 'Selbstlerner / Berufstätige',
+    abschluss: 'Hochschulzertifikat (ECTS)',
+    foerderbar: 'ja',
+    kategorie: 'gefoerdert',
+    highlight: 'Hochschulzertifikat mit ECTS — anrechenbar auf späteres Studium',
+    link: 'https://www.iu-akademie.de',
+  },
+  {
+    id: 9,
+    name: 'ChatGPT & KI im Berufsalltag',
+    anbieter: 'Udemy',
+    preis: 'ca. 15–20 €',
+    preisNum: 20,
+    dauer: '4–8 Stunden',
+    format: 'Online, asynchron',
+    zielgruppe: 'Schneller Einstieg',
+    abschluss: 'Udemy-Zertifikat',
+    foerderbar: 'nein',
+    kategorie: 'guenstig',
+    highlight: 'Günstig, sofort startbereit — ideal zum Ausprobieren',
+    link: 'https://www.udemy.com',
+  },
+  {
+    id: 10,
+    name: 'AI for Everyone',
+    anbieter: 'DeepLearning.AI (Coursera)',
+    preis: 'Ca. 49 €/Monat',
+    preisNum: 49,
+    dauer: 'Ca. 6 Stunden',
+    format: 'Online, asynchron',
+    zielgruppe: 'Internationaler Einstieg (Englisch)',
+    abschluss: 'Coursera-Zertifikat',
+    foerderbar: 'nein',
+    kategorie: 'guenstig',
+    highlight: 'Von Andrew Ng — dem weltweit bekanntesten KI-Lehrer',
+    link: 'https://www.coursera.org',
   },
 ];
 ---
 
-<BaseLayout title="KI-Kurse vergleichen" description="Vergleichen Sie KI-Weiterbildungen transparent nach Preis, Dauer, Format und Förderbarkeit.">
+<BaseLayout title="KI-Kurse vergleichen" description="10 KI-Weiterbildungen im Vergleich — von kostenlos bis intensiv. Mit Förderbarkeit, Zertifikat und Zielgruppe.">
 
   <div class="max-w-6xl mx-auto px-4 py-12">
 
-    <div class="mb-10">
+    <div class="mb-8">
       <h1 class="text-3xl font-bold text-gray-900 mb-3">KI-Kurse im Vergleich</h1>
-      <p class="text-gray-500 max-w-2xl">Alle Angaben basieren auf öffentlich verfügbaren Informationen der Anbieter. Letzte Aktualisierung: März 2026.</p>
+      <p class="text-gray-500 max-w-2xl">10 geprüfte Weiterbildungen — von kostenlos bis intensiv. Alle Angaben basieren auf öffentlich verfügbaren Informationen der Anbieter. Letzte Aktualisierung: März 2026.</p>
     </div>
 
-    <!-- Tabelle Desktop -->
-    <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-      <table class="w-full text-sm text-left">
-        <thead class="bg-gray-50 border-b border-gray-200 text-xs uppercase tracking-wider text-gray-400">
-          <tr>
-            <th class="px-5 py-4 font-semibold">Kurs / Anbieter</th>
-            <th class="px-5 py-4 font-semibold">Preis</th>
-            <th class="px-5 py-4 font-semibold">Dauer</th>
-            <th class="px-5 py-4 font-semibold">Format</th>
-            <th class="px-5 py-4 font-semibold">Niveau</th>
-            <th class="px-5 py-4 font-semibold">Abschluss</th>
-            <th class="px-5 py-4 font-semibold">Förderbar</th>
-            <th class="px-5 py-4 font-semibold">Themen</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-100 bg-white">
-          {kurse.map((kurs) => (
-            <tr class="hover:bg-gray-50 transition">
-              <td class="px-5 py-5">
-                <p class="font-semibold text-gray-900">{kurs.name}</p>
-                <p class="text-gray-400 text-xs mt-0.5">{kurs.anbieter}</p>
-              </td>
-              <td class="px-5 py-5 font-semibold text-gray-800">{kurs.preis}</td>
-              <td class="px-5 py-5 text-gray-600">{kurs.dauer}</td>
-              <td class="px-5 py-5 text-gray-600">{kurs.format}</td>
-              <td class="px-5 py-5">
-                <span class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">{kurs.niveau}</span>
-              </td>
-              <td class="px-5 py-5 text-gray-600">{kurs.abschluss}</td>
-              <td class="px-5 py-5">
-                {kurs.foerderbar ? (
-                  <span class="inline-flex items-center gap-1 text-[#10B981] font-medium text-xs">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <!-- Empfehlungsbox -->
+    <div class="bg-[#2563EB]/5 border border-[#2563EB]/20 rounded-xl p-6 mb-8">
+      <p class="text-xs font-semibold text-[#2563EB] uppercase tracking-wider mb-3">Schnellübersicht: Was passt zu mir?</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+        <div class="flex gap-2 items-start">
+          <span class="text-[#10B981] font-bold shrink-0">→</span>
+          <span><strong>Arbeitssuchende:</strong> SkillSprinters oder Hilker Consulting (100% kostenlos)</span>
+        </div>
+        <div class="flex gap-2 items-start">
+          <span class="text-[#10B981] font-bold shrink-0">→</span>
+          <span><strong>Wenig Zeit:</strong> XDi Certified AI Professional (2 Tage)</span>
+        </div>
+        <div class="flex gap-2 items-start">
+          <span class="text-[#10B981] font-bold shrink-0">→</span>
+          <span><strong>Führungskräfte:</strong> Haufe Akademie KI-Manager</span>
+        </div>
+        <div class="flex gap-2 items-start">
+          <span class="text-[#10B981] font-bold shrink-0">→</span>
+          <span><strong>Karrierewechsel:</strong> neue fische AI Bootcamp</span>
+        </div>
+        <div class="flex gap-2 items-start">
+          <span class="text-[#10B981] font-bold shrink-0">→</span>
+          <span><strong>Kostenloser Einstieg:</strong> Elements of AI (IHK)</span>
+        </div>
+        <div class="flex gap-2 items-start">
+          <span class="text-[#10B981] font-bold shrink-0">→</span>
+          <span><strong>Günstig & schnell:</strong> Udemy ChatGPT Kurs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="flex flex-wrap gap-2 mb-6" id="filter-bar">
+      <button onclick="filterKurse('alle')" data-filter="alle" class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold border border-[#2563EB] bg-[#2563EB] text-white transition">
+        Alle (10)
+      </button>
+      <button onclick="filterKurse('gefoerdert')" data-filter="gefoerdert" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-[#2563EB] hover:text-[#2563EB] transition">
+        ✅ Förderbar (6)
+      </button>
+      <button onclick="filterKurse('kostenlos')" data-filter="kostenlos" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-[#2563EB] hover:text-[#2563EB] transition">
+        🎓 Kostenlos (1)
+      </button>
+      <button onclick="filterKurse('premium')" data-filter="premium" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-[#2563EB] hover:text-[#2563EB] transition">
+        ⭐ Premium (2)
+      </button>
+      <button onclick="filterKurse('guenstig')" data-filter="guenstig" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-[#2563EB] hover:text-[#2563EB] transition">
+        💸 Günstig (2)
+      </button>
+    </div>
+
+    <!-- Kurs-Karten -->
+    <div class="flex flex-col gap-4" id="kurs-liste">
+      {kurse.map((kurs) => (
+        <div class="kurs-karte bg-white rounded-xl border border-gray-200 p-6 hover:border-[#2563EB] hover:shadow-sm transition" data-kategorie={kurs.kategorie} data-foerderbar={kurs.foerderbar}>
+          <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+
+            <!-- Hauptinfo -->
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-center gap-2 mb-1">
+                <h2 class="font-bold text-gray-900 text-base">{kurs.name}</h2>
+                <span class="text-xs text-gray-400">—</span>
+                <span class="text-sm text-gray-500">{kurs.anbieter}</span>
+              </div>
+              <p class="text-sm text-[#2563EB] font-medium mb-3">{kurs.highlight}</p>
+              <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs text-gray-500">
+                <span>⏱ {kurs.dauer}</span>
+                <span>💻 {kurs.format}</span>
+                <span>🎯 {kurs.zielgruppe}</span>
+                <span>📜 {kurs.abschluss}</span>
+              </div>
+            </div>
+
+            <!-- Preis + Förderung + CTA -->
+            <div class="sm:text-right flex sm:flex-col items-center sm:items-end gap-4 sm:gap-2 shrink-0">
+              <div>
+                <p class="font-bold text-gray-900 text-lg leading-tight">{kurs.preis}</p>
+                {kurs.foerderbar === 'ja' && (
+                  <span class="inline-flex items-center gap-1 text-[#10B981] text-xs font-semibold mt-1">
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    Ja
+                    Förderbar
                   </span>
-                ) : (
-                  <span class="text-gray-400 text-xs">Nein</span>
                 )}
-              </td>
-              <td class="px-5 py-5 text-gray-500 text-xs max-w-xs">{kurs.themen}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                {kurs.foerderbar === 'teilweise' && (
+                  <span class="inline-block text-amber-500 text-xs font-semibold mt-1">
+                    ~ Teilweise förderbar
+                  </span>
+                )}
+                {kurs.foerderbar === 'nein' && (
+                  <span class="inline-block text-gray-300 text-xs mt-1">Keine Förderung</span>
+                )}
+              </div>
+              <a
+                href={kurs.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-[#2563EB] text-white text-sm font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
+              >
+                Zum Anbieter →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
 
-    <p class="mt-4 text-xs text-gray-400">
-      * Placeholder-Daten. Wir übernehmen keine Gewähr für Aktualität und Vollständigkeit.
-    </p>
+    <!-- Keine Ergebnisse -->
+    <div id="keine-ergebnisse" class="hidden text-center py-12 text-gray-400">
+      Keine Kurse in dieser Kategorie gefunden.
+    </div>
 
-    <!-- Hinweis Förderung -->
+    <!-- Förderhinweis -->
     <div class="mt-10 bg-[#10B981]/10 border border-[#10B981]/30 rounded-xl p-6 flex gap-4 items-start">
       <svg class="w-6 h-6 text-[#10B981] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20A10 10 0 0012 2z" />
@@ -110,12 +284,57 @@ const kurse = [
       <div>
         <p class="font-semibold text-gray-800 mb-1">Bis zu 100% Förderung möglich</p>
         <p class="text-sm text-gray-600">
-          Viele KI-Kurse sind über den Qualifizierungschancen-Gesetz (QCG), den Bildungsgutschein (AZAV) oder das Aufstiegs-BAföG förderbar.
-          Nutzen Sie unseren <a href="/foerderrechner" class="text-[#2563EB] underline hover:no-underline">Förderrechner</a>, um Ihren Anspruch zu prüfen.
+          Viele KI-Kurse sind über den Bildungsgutschein (AZAV) oder das Qualifizierungschancengesetz förderbar.
+          Nutze unseren <a href="/foerderrechner" class="text-[#2563EB] underline hover:no-underline">Förderrechner</a>, um deinen Anspruch zu prüfen.
+          Mehr dazu im <a href="/ratgeber/ki-kurs-bildungsgutschein" class="text-[#2563EB] underline hover:no-underline">Ratgeber: KI-Kurs mit Bildungsgutschein</a>.
         </p>
       </div>
     </div>
 
+    <!-- Affiliate-Hinweis -->
+    <p class="mt-6 text-xs text-gray-400">
+      * Diese Seite enthält Affiliate-Links. Wenn du über unsere Links einen Kurs buchst, erhalten wir eine kleine Provision — für dich ohne Mehrkosten. Das beeinflusst nicht unsere Empfehlungen.
+    </p>
+
   </div>
 
 </BaseLayout>
+
+<script is:inline>
+  function filterKurse(kategorie) {
+    var karten = document.querySelectorAll('.kurs-karte');
+    var sichtbar = 0;
+
+    karten.forEach(function(karte) {
+      var kat = karte.getAttribute('data-kategorie');
+      var foerderbar = karte.getAttribute('data-foerderbar');
+      var zeigen = false;
+
+      if (kategorie === 'alle') {
+        zeigen = true;
+      } else if (kategorie === 'gefoerdert') {
+        zeigen = foerderbar === 'ja';
+      } else {
+        zeigen = kat === kategorie;
+      }
+
+      if (zeigen) {
+        karte.classList.remove('hidden');
+        sichtbar++;
+      } else {
+        karte.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('keine-ergebnisse').classList.toggle('hidden', sichtbar > 0);
+
+    document.querySelectorAll('.filter-btn').forEach(function(btn) {
+      var isActive = btn.getAttribute('data-filter') === kategorie;
+      btn.classList.toggle('bg-[#2563EB]', isActive);
+      btn.classList.toggle('text-white', isActive);
+      btn.classList.toggle('border-[#2563EB]', isActive);
+      btn.classList.toggle('text-gray-600', !isActive);
+      btn.classList.toggle('border-gray-200', !isActive);
+    });
+  }
+</script>
