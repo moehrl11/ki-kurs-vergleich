@@ -2,69 +2,103 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Über uns" description="Wer hinter KI-Kurs-Vergleich.de steckt und wie wir arbeiten.">
+<BaseLayout
+  title="Über uns"
+  description="Wer steckt hinter KI-Kurs-Vergleich.de? Ein unabhängiges Portal von Martin — Produktmanager, KI-Enthusiast und selbst Kursteilnehmer."
+>
 
-  <div class="max-w-4xl mx-auto px-4 py-12">
+  <div class="max-w-3xl mx-auto px-4 py-12">
 
-    <!-- Intro -->
-    <div class="mb-12">
-      <h1 class="text-3xl font-bold text-gray-900 mb-4">Über KI-Kurs-Vergleich.de</h1>
-      <p class="text-lg text-gray-500 max-w-2xl">
-        Wir sind ein unabhängiges Portal — kein Kursanbieter, kein Institut. Unser einziges Ziel: dir helfen, den richtigen KI-Kurs zu finden.
-      </p>
+    <!-- Intro mit Foto -->
+    <div class="flex flex-col sm:flex-row items-start gap-8 mb-12">
+      <img
+        src="/martin.jpg"
+        alt="Martin Morlock"
+        class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md shrink-0"
+      />
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900 mb-3">Über KI-Kurs-Vergleich.de</h1>
+        <p class="text-gray-500 text-lg leading-relaxed">
+          Ich bin Martin — Produktmanager für eine Software im medizinischen Umfeld, IT-affin und seit 2023 tief im Thema Künstliche Intelligenz.
+        </p>
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6 mb-16">
+    <!-- Fließtext -->
+    <div class="prose prose-gray max-w-none space-y-10">
 
-      <div class="bg-white rounded-xl border border-gray-200 p-6">
-        <div class="w-10 h-10 bg-[#2563EB]/10 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-5 h-5 text-[#2563EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h2 class="font-semibold text-gray-900 mb-2">Unabhängig</h2>
-        <p class="text-sm text-gray-500">Kein Kursanbieter bezahlt uns für bessere Platzierungen. Unsere Bewertungen basieren auf öffentlich verfügbaren Informationen.</p>
-      </div>
+      <section>
+        <p class="text-gray-700 leading-relaxed">
+          Ich nutze KI täglich — privat und im Beruf. Ich habe selbst schon mehrere KI-Kurse gemacht, Tools ausprobiert, Workflows automatisiert und dabei gemerkt: Der Markt für KI-Weiterbildungen ist ein einziges Chaos. Dutzende Anbieter, unklare Preise, kaum echte Vergleiche — und die Frage nach Förderung beantwortet kaum jemand verständlich.
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4">Also habe ich diese Seite gebaut.</p>
+      </section>
 
-      <div class="bg-white rounded-xl border border-gray-200 p-6">
-        <div class="w-10 h-10 bg-[#10B981]/10 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-5 h-5 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h2 class="font-semibold text-gray-900 mb-2">Transparent</h2>
-        <p class="text-sm text-gray-500">Wir verdienen über Affiliate-Provisionen, wenn du über unsere Links buchst. Das steht auf jeder Seite offen dabei.</p>
-      </div>
+      <hr class="border-gray-200" />
 
-      <div class="bg-white rounded-xl border border-gray-200 p-6">
-        <div class="w-10 h-10 bg-[#2563EB]/10 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-5 h-5 text-[#2563EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-        </div>
-        <h2 class="font-semibold text-gray-900 mb-2">Kostenlos</h2>
-        <p class="text-sm text-gray-500">Der Vergleich, der Förderrechner und der Kurs-Finder sind für dich kostenlos — ohne Registrierung, ohne Paywall.</p>
-      </div>
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">Warum ich das mache</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Ich glaube wirklich daran: KI wird die Welt verändern — und zwar auf eine Art die wir gerade erst anfangen zu verstehen. Die Chancen die sich daraus ergeben sind unglaublich groß. Für Unternehmen, für Berufe, für jeden einzelnen der bereit ist sich damit auseinanderzusetzen.
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4">
+          Genau deshalb sollte sich jeder mit dem Thema beschäftigen. Nicht aus Angst den Job zu verlieren — sondern weil die Möglichkeiten enorm sind.
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4">
+          Das Problem: Der Einstieg ist unnötig schwer gemacht. Zu viele Kurse, zu wenig Transparenz, zu viel Hype und zu wenig echte Orientierung.
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4 font-medium">KI-Kurs-Vergleich.de ist mein Versuch das zu ändern.</p>
+      </section>
 
-      <div class="bg-white rounded-xl border border-gray-200 p-6">
-        <div class="w-10 h-10 bg-[#10B981]/10 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-5 h-5 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          </svg>
+      <hr class="border-gray-200" />
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Was diese Seite ist — und was nicht</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-[#10B981]/10 border border-[#10B981]/20 rounded-xl p-5">
+            <p class="font-semibold text-gray-900 mb-3">Was sie ist:</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex gap-2"><span class="text-[#10B981] font-bold">✓</span> Unabhängiger Vergleich von KI-Weiterbildungen in Deutschland</li>
+              <li class="flex gap-2"><span class="text-[#10B981] font-bold">✓</span> Ehrliche Einschätzung welche Kurse wirklich etwas bringen</li>
+              <li class="flex gap-2"><span class="text-[#10B981] font-bold">✓</span> Ratgeber für Förderung, Bildungsgutschein und AZAV</li>
+              <li class="flex gap-2"><span class="text-[#10B981] font-bold">✓</span> Kostenlos für alle Besucher</li>
+            </ul>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-semibold text-gray-900 mb-3">Was sie nicht ist:</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex gap-2"><span>✗</span> Ein Kursanbieter</li>
+              <li class="flex gap-2"><span>✗</span> Gesponsert von einem bestimmten Anbieter</li>
+              <li class="flex gap-2"><span>✗</span> Eine Werbeseite die jeden Kurs gleich gut findet</li>
+            </ul>
+          </div>
         </div>
-        <h2 class="font-semibold text-gray-900 mb-2">Deutschland-Fokus</h2>
-        <p class="text-sm text-gray-500">Wir berücksichtigen deutsche Förderungen, AZAV-Zertifizierungen und den deutschen Arbeitsmarkt — kein generischer internationaler Kursvergleich.</p>
-      </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">Transparenz: So funktioniert die Finanzierung</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Wenn du über einen meiner Links einen Kurs buchst, bekomme ich eine kleine Provision vom Anbieter. Für dich ändert sich am Preis nichts — du zahlst genau so viel wie direkt beim Anbieter.
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4">
+          Das ist mir wichtig zu sagen weil ich finde dass Transparenz hier selbstverständlich sein sollte. Meine Empfehlungen hängen nicht davon ab wer die höchste Provision zahlt — sondern davon was ich selbst für sinnvoll halte.
+        </p>
+      </section>
+
+      <hr class="border-gray-200" />
 
     </div>
 
     <!-- B2B Formular -->
-    <div class="bg-white rounded-xl border border-gray-200 p-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">KI-Schulung für Ihr Unternehmen?</h2>
-      <p class="text-gray-500 mb-8">Wir helfen Ihnen das passende Angebot für Ihr Team zu finden — kostenlos und unverbindlich.</p>
+    <div class="mt-10 bg-white rounded-xl border border-gray-200 p-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Du willst mehrere Mitarbeiter schulen?</h2>
+      <p class="text-gray-500 mb-8">
+        Wenn du HR-Verantwortlicher oder Führungskraft bist und ein Team schulen möchtest — melde dich gerne direkt. Ich helfe dir den richtigen Anbieter für eure Anforderungen und euer Budget zu finden.
+      </p>
 
       <form action="https://formspree.io/f/PLACEHOLDER" method="POST" class="space-y-5">
-
         <div class="grid sm:grid-cols-2 gap-5">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name <span class="text-red-500">*</span></label>
@@ -106,11 +140,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <button type="submit"
           class="bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition shadow-sm">
-          Anfrage senden
+          Anfrage senden →
         </button>
-
       </form>
     </div>
+
+    <p class="text-center text-sm text-gray-400 mt-10 italic">KI-Kurs-Vergleich.de — unabhängig, kostenlos, ehrlich.</p>
 
   </div>
 
