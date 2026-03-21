@@ -1,5 +1,4 @@
-\---
-
+---
 title: "ChatGPT Kurs Deutsch: Die besten Kurse im Vergleich"
 description: "Welcher ChatGPT Kurs lohnt sich wirklich? Kostenlose vs. bezahlte Kurse auf Deutsch im Vergleich — mit konkreten Empfehlungen."
 date: "2026-03-20"
