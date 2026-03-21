@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const artikel = (await getCollection('ratgeber'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
 ---
 
 <BaseLayout title="KI-Kurse vergleichen" description="10 KI-Weiterbildungen im Vergleich — von kostenlos bis intensiv. Mit Förderbarkeit, Zertifikat und Zielgruppe auf einen Blick.">
@@ -12,7 +17,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </h1>
       <p class="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
         Wir vergleichen KI-Kurse transparent nach Inhalt, Preis und Förderbarkeit —
-        damit Sie die richtige Entscheidung für Ihre Karriere treffen.
+        damit du die richtige Entscheidung für deine Karriere triffst.
       </p>
       <a href="/vergleich" class="inline-block bg-[#2563EB] text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition shadow-sm">
         Jetzt Kurse vergleichen
@@ -43,7 +48,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </svg>
         </div>
         <h2 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#10B981] transition">Quiz: Welcher Kurs passt?</h2>
-        <p class="text-sm text-gray-500">In 3 Minuten zur persönlichen Kursempfehlung — basierend auf Ihrem Vorwissen und Lernziel.</p>
+        <p class="text-sm text-gray-500">In 3 Minuten zur persönlichen Kursempfehlung — basierend auf deinem Vorwissen und Lernziel.</p>
       </a>
 
       <!-- Karte 3: Für Unternehmen -->
@@ -54,7 +59,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </svg>
         </div>
         <h2 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#2563EB] transition">Für Unternehmen</h2>
-        <p class="text-sm text-gray-500">Gruppentrainings, Fördermöglichkeiten und maßgeschneiderte KI-Schulungen für Ihr Team.</p>
+        <p class="text-sm text-gray-500">Gruppentrainings, Fördermöglichkeiten und maßgeschneiderte KI-Schulungen für dein Team.</p>
       </a>
 
     </div>
@@ -63,11 +68,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Trust-Leiste -->
   <section class="bg-white border-t border-gray-200">
     <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col sm:flex-row items-center justify-center gap-10 text-sm text-gray-400 text-center">
-      <div><span class="block text-2xl font-bold text-gray-800 mb-1">50+</span>Kurse verglichen</div>
+      <div><span class="block text-2xl font-bold text-gray-800 mb-1">10</span>Kurse verglichen</div>
       <div class="hidden sm:block w-px h-10 bg-gray-200"></div>
       <div><span class="block text-2xl font-bold text-gray-800 mb-1">AZAV</span>Förderbarkeit geprüft</div>
       <div class="hidden sm:block w-px h-10 bg-gray-200"></div>
       <div><span class="block text-2xl font-bold text-gray-800 mb-1">EU AI Act</span>Compliance-Kurse dabei</div>
+    </div>
+  </section>
+
+  <!-- Ratgeber-Vorschau -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-2xl font-bold text-gray-900">Ratgeber & Tipps</h2>
+      <a href="/ratgeber" class="text-sm font-semibold text-[#2563EB] hover:underline">Alle Artikel →</a>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-6">
+      {artikel.map(a => (
+        <a href={`/ratgeber/${a.data.slug}`} class="group bg-white rounded-xl border border-gray-200 p-6 hover:border-[#2563EB] hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+            <span>{a.data.date}</span>
+            {a.data.lesezeit && <span>· {a.data.lesezeit}</span>}
+          </div>
+          <h3 class="font-semibold text-gray-900 leading-snug mb-2 group-hover:text-[#2563EB] transition">{a.data.title}</h3>
+          <p class="text-sm text-gray-500 leading-relaxed line-clamp-2">{a.data.description}</p>
+        </a>
+      ))}
     </div>
   </section>
 
