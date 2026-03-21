@@ -4,41 +4,48 @@
 - [x] Astro + Tailwind v4 installiert (`site/nebulous-neptune/`)
 - [x] railway.toml (Build + Start Commands)
 - [x] nixpacks.toml (Node 23)
-- [x] server.js via `serve`-Paket
+- [x] serve-Paket (0.0.0.0:$PORT)
 - [x] Railway deployed & erreichbar
 - [x] Custom Domain `ki-kurs-vergleich.de` verbunden
 - [x] robots.txt
+- [x] Sitemap (@astrojs/sitemap)
 
 ## Layout & Komponenten
-- [x] BaseLayout.astro (Inter Font, OG Tags, Favicon)
+- [x] BaseLayout.astro (Inter Font, OG Tags, Favicon, Google Analytics G-VY6H5CCPK7)
 - [x] Header.astro (sticky, CSS-only Hamburger, Active State)
-- [x] Footer.astro (dunkel, 3-spaltig)
+- [x] Footer.astro (dunkel, 3-spaltig, Link zu /unternehmen)
 - [x] AffiliateCTA.astro
-- [x] KursCard.astro
 
 ## Seiten
-- [x] index.astro (Homepage — vereinfacht, noch nicht finale Spec)
-- [x] vergleich.astro (3 Kurse — noch nicht finale Spec mit 6 Kursen + Filter)
-- [x] ratgeber/[...slug].astro (dynamische Artikel-Seite)
+- [x] index.astro (Homepage — SEO-Title, Trust-Bar, 3 Einstiegskarten)
+- [x] vergleich.astro (10 echte Kurse, Filter-Bar, Empfehlungsbox, Affiliate-Hinweis)
 - [x] ratgeber/index.astro (Übersichtsseite)
+- [x] ratgeber/[...slug].astro (dynamische Artikel-Seite mit Sidebar)
 - [x] foerderrechner.astro (JS-only, 3 Schritte, Ergebnis-Box)
-- [x] quiz.astro (5 Fragen, Fortschrittsbalken, if/else Empfehlung)
-- [x] ueber-uns.astro (B2B Formular via Formspree — Placeholder ID)
-- [x] impressum.astro
+- [x] quiz.astro (5 Fragen, Fortschrittsbalken, Empfehlungen auf echte Kurse)
+- [x] ueber-uns.astro (Kontaktformular via Formspree xreyjdao)
+- [x] unternehmen.astro (QCG-Förderübersicht, Kurse, Kontaktformular)
+- [x] impressum.astro (Martin Morlock, Sophie-Scholl-Str. 23a, 84405 Dorfen)
 - [x] datenschutz.astro
 
 ## Content
 - [x] content.config.ts (Astro 6 Content Layer API)
-- [x] ratgeber/ki-kurs-bildungsgutschein.md (Beispielartikel)
-- [ ] Weitere Ratgeber-Artikel (Keywords in generator/keywords.json)
+- [x] ratgeber/ki-kurs-bildungsgutschein.md
+- [x] ratgeber/ki-lernen-einsteiger.md
+- [x] ratgeber/ki-weiterbildung-quereinsteiger.md
+- [ ] Weitere Ratgeber-Artikel geplant (z.B. EU AI Act, KI-Zertifikate im Vergleich)
 
-## Noch zu updaten
-- [ ] index.astro → auf finale Spec (6 Sektionen, Trust-Bar, EU AI Act Block, Ratgeber-Vorschau)
-- [ ] vergleich.astro → 6 Kurse, Filter-Leiste, Empfehlungsbox, Affiliate-Hinweis
+## SEO & Tracking
+- [x] Google Search Console verifiziert
+- [x] Google Analytics eingebunden (G-VY6H5CCPK7)
+- [x] Sitemap unter /sitemap-index.xml
+- [ ] Sitemap in Google Search Console einreichen
 
-## Generator
-- [ ] generator/keywords.json
-- [ ] generator/master_prompt.md
+## Monetarisierung
+- [ ] AWIN anmelden (IU Akademie + Udemy — schnellste Genehmigung)
+- [ ] Direkte Affiliate-Anfragen: SkillSprinters, WBS, neue fische, Hilker, XDi, Haufe
+- [ ] Affiliate-Links in vergleich.astro eintragen sobald freigeschaltet
 
-## Sonstiges
-- [x] ki-kurs-vergleich-claude-code-prompt.md (Projektspec)
+## Offen
+- [ ] Open Graph Bild (für Social Media Vorschau)
+- [ ] Weitere Ratgeber-Artikel
