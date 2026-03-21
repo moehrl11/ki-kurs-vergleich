@@ -152,16 +152,91 @@ const kurse = [
     highlight: 'Von Andrew Ng — dem weltweit bekanntesten KI-Lehrer',
     link: 'https://www.coursera.org',
   },
+  {
+    id: 11,
+    name: 'Zertifizierter KI-Manager (Basic Level)',
+    anbieter: 'Fraunhofer IAIS / FIT',
+    preis: 'ca. 3.950 €',
+    preisNum: 3950,
+    dauer: '3 Wochen (Mo + Di, ganztägig)',
+    format: 'Online (Live)',
+    zielgruppe: 'Führungskräfte / Innovationsverantwortliche',
+    abschluss: 'Fraunhofer-Zertifikat (KI-Manager Basic Level)',
+    foerderbar: 'nein',
+    kategorie: 'premium',
+    highlight: 'Forschungsbasiertes Zertifikat von Deutschlands größter angewandter Forschungsorganisation',
+    link: 'https://www.fit.fraunhofer.de/de/weiterbildung/weiterbildung-gen-ai/Weiterbildung-KI-Manager.html',
+  },
+  {
+    id: 12,
+    name: 'Google AI Essentials',
+    anbieter: 'Google (Grow with Google)',
+    preis: 'Kostenlos',
+    preisNum: 0,
+    dauer: 'ca. 10 Stunden',
+    format: 'Online, On-Demand',
+    zielgruppe: 'Einsteiger, alle Branchen',
+    abschluss: 'Google-Zertifikat (LinkedIn-teilbar)',
+    foerderbar: 'nein',
+    kategorie: 'kostenlos',
+    highlight: 'Direkt von Google — kostenlos, auf Deutsch, in einem Wochenende machbar',
+    link: 'https://grow.google/intl/de/courses-and-tools/',
+  },
+  {
+    id: 13,
+    name: 'KI Mediengestalter:in',
+    anbieter: 'Digital Career Institute (DCI)',
+    preis: 'Kostenlos mit Bildungsgutschein',
+    preisNum: 0,
+    dauer: 'ca. 6 Monate (Vollzeit)',
+    format: 'Online (Live + Selbststudium)',
+    zielgruppe: 'Quereinsteiger / kreative Berufe',
+    abschluss: 'DCI-Zertifikat (AZAV/CertQua)',
+    foerderbar: 'ja',
+    kategorie: 'gefoerdert',
+    highlight: 'Laptop inklusive — plus aktive Jobvermittlung nach dem Abschluss',
+    link: 'https://digitalcareerinstitute.org/courses/ki-mediengestalter/',
+  },
+  {
+    id: 14,
+    name: 'AI für alle (IBM)',
+    anbieter: 'IBM via Coursera',
+    preis: 'ca. 49 €',
+    preisNum: 49,
+    dauer: 'ca. 6 Stunden',
+    format: 'Online, asynchron',
+    zielgruppe: 'Berufstätige ohne Tech-Hintergrund',
+    abschluss: 'IBM-Zertifikat via Coursera',
+    foerderbar: 'nein',
+    kategorie: 'guenstig',
+    highlight: 'Weltweiter Bestseller — IBM erklärt KI für Menschen ohne IT-Hintergrund',
+    link: 'https://www.coursera.org/learn/ai-for-everyone',
+  },
+  {
+    id: 15,
+    name: 'KI für alle: Einführung in die KI',
+    anbieter: 'KI-Campus (Stifterverband / BMBF)',
+    preis: 'Kostenlos',
+    preisNum: 0,
+    dauer: 'ca. 10–12 Stunden',
+    format: 'Online, On-Demand',
+    zielgruppe: 'Absolute Einsteiger, alle Berufsgruppen',
+    abschluss: 'KI-Campus-Zertifikat (kostenlos)',
+    foerderbar: 'nein',
+    kategorie: 'kostenlos',
+    highlight: 'Staatlich gefördert — die offizielle deutsche KI-Lernplattform, komplett kostenlos',
+    link: 'https://ki-campus.org/courses/ki-fueralle-dfki2020',
+  },
 ];
 ---
 
-<BaseLayout title="KI-Kurse vergleichen" description="10 KI-Weiterbildungen im Vergleich — von kostenlos bis intensiv. Mit Förderbarkeit, Zertifikat und Zielgruppe.">
+<BaseLayout title="KI-Kurse vergleichen" description="15 KI-Weiterbildungen im Vergleich — von kostenlos bis intensiv. Mit Förderbarkeit, Zertifikat und Zielgruppe.">
 
   <div class="max-w-6xl mx-auto px-4 py-12">
 
     <div class="mb-8">
       <h1 class="text-3xl font-bold text-gray-900 mb-3">KI-Kurse im Vergleich</h1>
-      <p class="text-gray-500 max-w-2xl">10 geprüfte Weiterbildungen — von kostenlos bis intensiv.</p>
+      <p class="text-gray-500 max-w-2xl">15 geprüfte Weiterbildungen — von kostenlos bis intensiv.</p>
       <p class="text-xs text-gray-400 max-w-2xl mt-2">Wie wir vergleichen: Alle aufgeführten Kurse wurden selbst recherchiert und auf Basis öffentlich verfügbarer Anbieterinformationen bewertet. Geprüft wurden Preis, Dauer, Format, Zertifikat, Zielgruppe und Förderbarkeit über Bildungsgutschein oder QCG. Die AZAV-Zertifizierung wurde direkt auf den Anbieter-Websites verifiziert. Daten werden regelmäßig aktualisiert.</p>
     </div>
 
@@ -193,25 +268,33 @@ const kurse = [
           <span class="text-[#10B981] font-bold shrink-0">→</span>
           <span><strong>Günstig & schnell:</strong> Udemy ChatGPT Kurs</span>
         </div>
+        <div class="flex gap-2 items-start">
+          <span class="text-[#10B981] font-bold shrink-0">→</span>
+          <span><strong>Renommiertes Zertifikat:</strong> Fraunhofer KI-Manager</span>
+        </div>
+        <div class="flex gap-2 items-start">
+          <span class="text-[#10B981] font-bold shrink-0">→</span>
+          <span><strong>Schnellster Einstieg:</strong> Google AI Essentials (10h, kostenlos)</span>
+        </div>
       </div>
     </div>
 
     <!-- Filter -->
     <div class="flex flex-wrap gap-2 mb-6" id="filter-bar">
       <button onclick="filterKurse('alle')" data-filter="alle" class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold border border-[#2563EB] bg-[#2563EB] text-white transition">
-        Alle (10)
+        Alle (15)
       </button>
       <button onclick="filterKurse('gefoerdert')" data-filter="gefoerdert" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-[#2563EB] hover:text-[#2563EB] transition">
-        ✅ Förderbar (6)
+        ✅ Förderbar (7)
       </button>
       <button onclick="filterKurse('kostenlos')" data-filter="kostenlos" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-[#2563EB] hover:text-[#2563EB] transition">
-        🎓 Kostenlos (1)
+        🎓 Kostenlos (3)
       </button>
       <button onclick="filterKurse('premium')" data-filter="premium" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-[#2563EB] hover:text-[#2563EB] transition">
-        ⭐ Premium (2)
+        ⭐ Premium (3)
       </button>
       <button onclick="filterKurse('guenstig')" data-filter="guenstig" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-[#2563EB] hover:text-[#2563EB] transition">
-        💸 Günstig (2)
+        💸 Günstig (3)
       </button>
     </div>
 
