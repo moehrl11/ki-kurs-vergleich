@@ -15,9 +15,10 @@
 - [x] Header.astro (sticky, CSS-only Hamburger, Active State)
 - [x] Footer.astro (dunkel, 3-spaltig, Link zu /unternehmen)
 - [x] AffiliateCTA.astro
+- [x] Open Graph Bild (og-image.svg, 1200×630)
 
 ## Seiten
-- [x] index.astro (Homepage — SEO-Title, Trust-Bar, 3 Einstiegskarten)
+- [x] index.astro (Homepage — du-Sprache, Trust-Bar, Ratgeber-Vorschau)
 - [x] vergleich.astro (10 echte Kurse, Filter-Bar, Empfehlungsbox, Affiliate-Hinweis)
 - [x] ratgeber/index.astro (Übersichtsseite)
 - [x] ratgeber/[...slug].astro (dynamische Artikel-Seite mit Sidebar)
@@ -25,7 +26,7 @@
 - [x] quiz.astro (5 Fragen, Fortschrittsbalken, Empfehlungen auf echte Kurse)
 - [x] ueber-uns.astro (Kontaktformular via Formspree xreyjdao)
 - [x] unternehmen.astro (QCG-Förderübersicht, Kurse, Kontaktformular)
-- [x] impressum.astro (Martin Morlock, Sophie-Scholl-Str. 23a, 84405 Dorfen)
+- [x] impressum.astro (Martin Morlock, Sophie-Scholl-Str. 23a, 84405 Dorfen — "im Aufbau" entfernt)
 - [x] datenschutz.astro
 
 ## Content
@@ -33,7 +34,9 @@
 - [x] ratgeber/ki-kurs-bildungsgutschein.md
 - [x] ratgeber/ki-lernen-einsteiger.md
 - [x] ratgeber/ki-weiterbildung-quereinsteiger.md
-- [ ] Weitere Ratgeber-Artikel geplant (z.B. EU AI Act, KI-Zertifikate im Vergleich)
+- [x] ratgeber/chatgpt-kurs-vergleich.md
+- [x] ratgeber/ki-weiterbildung-kostenlos.md
+- [ ] Weitere Ratgeber-Artikel (EU AI Act, KI-Zertifikate im Vergleich)
 
 ## SEO & Tracking
 - [x] Google Search Console verifiziert
@@ -46,6 +49,21 @@
 - [ ] Direkte Affiliate-Anfragen: SkillSprinters, WBS, neue fische, Hilker, XDi, Haufe
 - [ ] Affiliate-Links in vergleich.astro eintragen sobald freigeschaltet
 
-## Offen
-- [ ] Open Graph Bild (für Social Media Vorschau)
-- [ ] Weitere Ratgeber-Artikel
+---
+
+## 🔴 Sofort — diese Woche
+
+- [ ] Impressum: Telefonnummer oder Kontaktformular-Hinweis ergänzen
+- [ ] Vergleichsseite: Bewertungsmethodik erklären (3–4 Sätze — Auswahl, Prüfung, Aktualisierung)
+- [ ] Vergleichsseite: "Zuletzt geprüft"-Datum bei jedem Kurs ergänzen
+
+## 🟡 Mittelfristig — nächste 2 Wochen
+
+- [ ] Vergleichsseite: Affiliate-Badge direkt bei jedem Kurs (nicht nur Footer-Hinweis)
+- [ ] Vergleichsseite: Mehr Tiefe pro Kurs (Praxisanteil, Dozenten, Rückgabe, Probelek­tion)
+- [ ] Homepage/Vergleich: Claim anpassen — z.B. "Dein Vergleich für KI-Weiterbildungen"
+
+## 🟢 Langfristig
+
+- [ ] Changelog-Seite einführen (wann welche Kurse aktualisiert wurden)
+- [ ] Kurse auf 20–30 erweitern
