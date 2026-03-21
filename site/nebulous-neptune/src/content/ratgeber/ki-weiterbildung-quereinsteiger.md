@@ -1,7 +1,7 @@
 ---
 title: "KI Weiterbildung für Quereinsteiger: So startest du ohne Vorkenntnisse"
 description: "KI lernen ohne Studium oder Programmierkenntnisse — welche Kurse für Quereinsteiger wirklich geeignet sind und wie du in 3 Monaten KI-fit wirst."
-date: "2025-03-17"
+date: "2026-03-17"
 slug: "ki-weiterbildung-quereinsteiger"
 kategorie: "ratgeber"
 lesezeit: "8 Minuten"

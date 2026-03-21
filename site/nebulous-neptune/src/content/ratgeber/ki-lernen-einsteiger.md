@@ -1,7 +1,7 @@
 ---
 title: "KI lernen als Einsteiger: So würde ich heute anfangen"
 description: "Kein Studium, keine Programmierkenntnisse nötig — wie du als Einsteiger pragmatisch und ohne Umwege in das Thema KI einsteigst."
-date: "2025-03-19"
+date: "2026-03-19"
 slug: "ki-lernen-einsteiger"
 kategorie: "ratgeber"
 lesezeit: "7 Minuten"
