@@ -18,15 +18,15 @@
 - [x] Open Graph Bild (og-image.svg, 1200×630)
 
 ## Seiten
-- [x] index.astro (Homepage — du-Sprache, Trust-Bar, Ratgeber-Vorschau)
-- [x] vergleich.astro (10 echte Kurse, Filter-Bar, Empfehlungsbox, Affiliate-Hinweis)
+- [x] index.astro (Homepage — "Dein Vergleich", du-Sprache, Trust-Bar, Ratgeber-Vorschau)
+- [x] vergleich.astro (10 echte Kurse, Filter-Bar, Empfehlungsbox, Methodik-Text, Zuletzt geprüft)
 - [x] ratgeber/index.astro (Übersichtsseite)
 - [x] ratgeber/[...slug].astro (dynamische Artikel-Seite mit Sidebar)
 - [x] foerderrechner.astro (JS-only, 3 Schritte, Ergebnis-Box)
 - [x] quiz.astro (5 Fragen, Fortschrittsbalken, Empfehlungen auf echte Kurse)
 - [x] ueber-uns.astro (Kontaktformular via Formspree xreyjdao)
 - [x] unternehmen.astro (QCG-Förderübersicht, Kurse, Kontaktformular)
-- [x] impressum.astro (Martin Morlock, Sophie-Scholl-Str. 23a, 84405 Dorfen — "im Aufbau" entfernt)
+- [x] impressum.astro (Martin Morlock, Sophie-Scholl-Str. 23a, 84405 Dorfen)
 - [x] datenschutz.astro
 
 ## Content
@@ -48,20 +48,21 @@
 - [ ] AWIN anmelden (IU Akademie + Udemy — schnellste Genehmigung)
 - [ ] Direkte Affiliate-Anfragen: SkillSprinters, WBS, neue fische, Hilker, XDi, Haufe
 - [ ] Affiliate-Links in vergleich.astro eintragen sobald freigeschaltet
+- [ ] Affiliate-Badge ("* Affiliate-Link") pro Kurs nur anzeigen wenn echter Link vorhanden — aktuell sind alle Links direkt, kein Tracking aktiv
 
 ---
 
 ## 🔴 Sofort — diese Woche
 
+- [x] Vergleichsseite: Bewertungsmethodik ergänzt
+- [x] Vergleichsseite: "Zuletzt geprüft"-Datum bei jedem Kurs
+- [x] Homepage/Vergleich: Claim auf "Dein Vergleich für KI-Weiterbildungen" angepasst
 - [ ] Impressum: Telefonnummer oder Kontaktformular-Hinweis ergänzen
-- [ ] Vergleichsseite: Bewertungsmethodik erklären (3–4 Sätze — Auswahl, Prüfung, Aktualisierung)
-- [ ] Vergleichsseite: "Zuletzt geprüft"-Datum bei jedem Kurs ergänzen
 
 ## 🟡 Mittelfristig — nächste 2 Wochen
 
-- [ ] Vergleichsseite: Affiliate-Badge direkt bei jedem Kurs (nicht nur Footer-Hinweis)
+- [ ] Affiliate-Badge pro Kurs nur einblenden wenn echter Affiliate-Link aktiv ist (nach AWIN-Freischaltung)
 - [ ] Vergleichsseite: Mehr Tiefe pro Kurs (Praxisanteil, Dozenten, Rückgabe, Probelek­tion)
-- [ ] Homepage/Vergleich: Claim anpassen — z.B. "Dein Vergleich für KI-Weiterbildungen"
 
 ## 🟢 Langfristig
 
