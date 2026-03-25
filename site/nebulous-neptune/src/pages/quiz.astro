@@ -110,8 +110,8 @@ const fragen = [
           <h2 id="empfehlung-titel" class="text-xl font-bold text-gray-900 mb-2"></h2>
           <p id="empfehlung-text" class="text-sm text-gray-600 leading-relaxed"></p>
         </div>
-        <a href="/vergleich" class="block text-center bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition mb-3">
-          Kurs ansehen →
+        <a id="empfehlung-link" href="/vergleich" target="_blank" rel="noopener noreferrer" class="block text-center bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition mb-3">
+          Zum Kurs →
         </a>
         <a href="/vergleich" class="block text-center text-sm text-gray-400 hover:text-[#2563EB] transition">
           Alle Kurse vergleichen →
@@ -159,6 +159,7 @@ const fragen = [
     var ergebnis = empfehlung();
     document.getElementById('empfehlung-titel').textContent = ergebnis.kurs;
     document.getElementById('empfehlung-text').textContent = ergebnis.text;
+    document.getElementById('empfehlung-link').href = ergebnis.link;
 
     document.querySelectorAll('[id^="frage-"]').forEach(function(el) { el.classList.add('hidden'); });
     document.getElementById('ergebnis').classList.remove('hidden');
@@ -171,21 +172,27 @@ const fragen = [
     var ziel = antworten['frage5'];
 
     if (ziel === 'team' || beruf === 'management') {
-      return { kurs: 'KI-Manager Seminar — Haufe Akademie', text: 'Für Führungskräfte und Teamverantwortliche ideal: praxisnah, IHK-Zertifikat möglich, in 2–3 Tagen absolviert. Oft über das Qualifizierungschancengesetz förderbar.' };
+      return { kurs: 'KI-Manager Seminar — Haufe Akademie', link: 'https://www.haufe-akademie.de/future-jobs-classes/ki-manager', text: 'Für Führungskräfte und Teamverantwortliche ideal: praxisnah, IHK-Zertifikat möglich, in 2–3 Tagen absolviert. Oft über das Qualifizierungschancengesetz förderbar.' };
     }
     if (beruf === 'it' || erfahrung === 'technisch') {
-      return { kurs: 'Certified AI Professional — XDi', text: 'Mit technischem Vorwissen bist du bereit für einen tiefgehenden Kurs mit anerkanntem Zertifikat. AZAV-zertifiziert und in 2 Tagen absolviert.' };
+      return { kurs: 'Certified AI Professional — XDi', link: 'https://xd-i.com/seminar/certified-ai-professional/', text: 'Mit technischem Vorwissen bist du bereit für einen tiefgehenden Kurs mit anerkanntem Zertifikat. AZAV-zertifiziert und in 2 Tagen absolviert.' };
     }
     if (beruf === 'marketing') {
-      return { kurs: 'ChatGPT & KI im Berufsalltag — Udemy', text: 'Günstig, sofort startbereit und praxisnah. Ideal für Marketing-Profis die KI-Tools schnell in den Joballtag integrieren wollen.' };
+      return { kurs: 'ChatGPT & KI im Berufsalltag — Udemy', link: 'https://www.udemy.com/course/chatgpt-masterclass-der-komplette-kurs-fuer-beruf-und-alltag/', text: 'Günstig, sofort startbereit und praxisnah. Ideal für Marketing-Profis die KI-Tools schnell in den Joballtag integrieren wollen.' };
     }
     if (zeit === 'lang' || ziel === 'karriere') {
-      return { kurs: 'AI Engineering Bootcamp — neue fische', text: 'Wenn du tief einsteigen und eine Karriere in Richtung KI anstrebst: 6 Monate, IHK-Zertifikat, 100% mit Bildungsgutschein förderbar.' };
+      return { kurs: 'AI Engineering Bootcamp — neue fische', link: 'https://www.neuefische.de/en/bootcamp/ai-engineering-data-science-and-machine-learning', text: 'Wenn du tief einsteigen und eine Karriere in Richtung KI anstrebst: 6 Monate, IHK-Zertifikat, 100% mit Bildungsgutschein förderbar.' };
+    }
+    if (erfahrung === 'null' && antworten['frage4'] === 'kostenlos' && zeit === 'kurz') {
+      return { kurs: 'Google AI Essentials — Google', link: 'https://grow.google/intl/de/courses-and-tools/', text: 'Direkt von Google — kostenlos, auf Deutsch, in einem Wochenende machbar. Ideal wenn du bei 0 anfängst und erst mal reinschnuppern willst.' };
+    }
+    if (erfahrung === 'null' && antworten['frage4'] === 'kostenlos') {
+      return { kurs: 'KI für alle — KI-Campus', link: 'https://ki-campus.org/courses/ki-fueralle-dfki2020', text: 'Die staatlich geförderte deutsche KI-Lernplattform — komplett kostenlos, ohne Vorkenntnisse, mit kostenlosem Zertifikat.' };
     }
     if (antworten['frage4'] === 'kostenlos') {
-      return { kurs: 'KI-Manager Weiterbildung — SkillSprinters', text: 'Komplett kostenlos mit Bildungsgutschein. Kleine Gruppen (max. 18 Teilnehmer), IHK-Abschluss, live online — kein Video-Friedhof.' };
+      return { kurs: 'KI-Manager Weiterbildung — SkillSprinters', link: 'https://skill-sprinters.de/', text: 'Komplett kostenlos mit Bildungsgutschein. Kleine Gruppen (max. 18 Teilnehmer), IHK-Abschluss, live online — kein Video-Friedhof.' };
     }
-    return { kurs: 'Elements of AI — IHK', text: 'Das beste kostenlose Einstiegsangebot auf dem Markt. IHK-Zertifikat inklusive, ohne Vorkenntnisse, flexibel im Selbststudium.' };
+    return { kurs: 'Elements of AI — IHK', link: 'https://course.elementsofai.com/de/', text: 'Das beste kostenlose Einstiegsangebot auf dem Markt. IHK-Zertifikat inklusive, ohne Vorkenntnisse, flexibel im Selbststudium.' };
   }
 
   function neuStarten() {
