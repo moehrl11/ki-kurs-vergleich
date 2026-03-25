@@ -36,19 +36,20 @@
 - [x] ratgeber/ki-weiterbildung-quereinsteiger.md
 - [x] ratgeber/chatgpt-kurs-vergleich.md
 - [x] ratgeber/ki-weiterbildung-kostenlos.md
+- [x] ratgeber/ki-kurs-ohne-vorkenntnisse.md
 - [ ] Weitere Ratgeber-Artikel (EU AI Act, KI-Zertifikate im Vergleich)
 
 ## SEO & Tracking
 - [x] Google Search Console verifiziert
 - [x] Google Analytics eingebunden (G-VY6H5CCPK7)
 - [x] Sitemap unter /sitemap-index.xml
-- [ ] Sitemap in Google Search Console einreichen
+- [x] Sitemap in Google Search Console einreichen
 
 ## Monetarisierung
 - [ ] AWIN anmelden (IU Akademie + Udemy — schnellste Genehmigung)
 - [ ] Direkte Affiliate-Anfragen: SkillSprinters, WBS, neue fische, Hilker, XDi, Haufe
 - [ ] Affiliate-Links in vergleich.astro eintragen sobald freigeschaltet
-- [ ] Affiliate-Badge ("* Affiliate-Link") pro Kurs nur anzeigen wenn echter Link vorhanden — aktuell sind alle Links direkt, kein Tracking aktiv
+- [x] Affiliate-Badge entfernt — wird erst wieder eingeblendet wenn echter Affiliate-Link aktiv ist
 
 ---
 
@@ -57,11 +58,11 @@
 - [x] Vergleichsseite: Bewertungsmethodik ergänzt
 - [x] Vergleichsseite: "Zuletzt geprüft"-Datum bei jedem Kurs
 - [x] Homepage/Vergleich: Claim auf "Dein Vergleich für KI-Weiterbildungen" angepasst
-- [ ] Impressum: Telefonnummer oder Kontaktformular-Hinweis ergänzen
+- [x] Impressum: E-Mail vorhanden — reicht laut § 5 TMG aus
 
 ## 🟡 Mittelfristig — nächste 2 Wochen
 
-- [ ] Affiliate-Badge pro Kurs nur einblenden wenn echter Affiliate-Link aktiv ist (nach AWIN-Freischaltung)
+- [ ] Affiliate-Badge pro Kurs wieder einblenden sobald echter Affiliate-Link aktiv ist (nach AWIN-Freischaltung)
 - [ ] Vergleichsseite: Mehr Tiefe pro Kurs (Praxisanteil, Dozenten, Rückgabe, Probelek­tion)
 
 ## 🟢 Langfristig
