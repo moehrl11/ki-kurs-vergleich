@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="So vergleichen wir KI-Weiterbildungen"
+  description="Unsere Methodik: Wie wir KI-Kurse prüfen, bewerten und vergleichen — transparent und nachvollziehbar."
+>
+
+  <div class="max-w-3xl mx-auto px-4 py-12">
+
+    <h1 class="text-3xl font-bold text-gray-900 mb-3">So vergleichen wir KI-Weiterbildungen</h1>
+    <p class="text-gray-500 text-lg leading-relaxed mb-10">
+      Wir wollen dir nicht einfach irgendeinen Kurs empfehlen, sondern dir helfen, die passende KI-Weiterbildung für dein Ziel, dein Budget und deinen Zeitrahmen zu finden. Deshalb prüfen wir alle Kurse nach einheitlichen Kriterien und bewerten sie anhand der Informationen, die öffentlich verfügbar sind oder direkt beim Anbieter nachvollzogen werden können. Unser Anspruch: klar, fair und transparent vergleichen.
+    </p>
+
+    <div class="prose prose-gray max-w-none space-y-10">
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Was wir prüfen</h2>
+        <div class="flex flex-wrap gap-2">
+          {['Preis', 'Dauer und Lernaufwand', 'Kursformat', 'Zielgruppe', 'Voraussetzungen', 'Zertifikat', 'Fördermöglichkeiten', 'Praxisnähe', 'Aktualität der Inhalte'].map((k) => (
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">{k}</span>
+          ))}
+        </div>
+        <p class="text-sm text-gray-500 mt-4">
+          Wichtig: Wir testen nicht jeden Kurs vollständig selbst durch. Unsere Bewertungen beruhen vor allem auf öffentlich verfügbaren Anbieterinformationen, Kursbeschreibungen, Preisangaben, Förderhinweisen und nachvollziehbaren Qualitätsmerkmalen.
+        </p>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-5">Nach diesen Kriterien bewerten wir</h2>
+        <div class="space-y-5">
+          {[
+            { nr: '1', titel: 'Preis-Leistung', text: 'Wir schauen nicht nur auf den Preis, sondern darauf, was du dafür bekommst: Umfang, Betreuung, Zertifikat, Praxisbezug und Förderfähigkeit.' },
+            { nr: '2', titel: 'Zielgruppeneignung', text: 'Ein Kurs für Führungskräfte ist etwas anderes als eine Weiterbildung für Berufseinsteiger oder Arbeitssuchende. Deshalb bewerten wir, für wen ein Kurs wirklich sinnvoll ist.' },
+            { nr: '3', titel: 'Einstiegshürde', text: 'Wir prüfen, ob Vorkenntnisse nötig sind und wie leicht der Einstieg fällt. Das ist besonders wichtig für Menschen, die neu im Thema KI sind.' },
+            { nr: '4', titel: 'Praxisbezug', text: 'Enthält der Kurs reale Anwendungen, Übungen, Projekte oder konkrete Business-Cases? Wir bevorzugen Angebote, die nicht nur Theorie, sondern anwendbares Wissen vermitteln.' },
+            { nr: '5', titel: 'Abschluss und Nachweis', text: 'Wir prüfen, ob du am Ende ein Zertifikat, eine Teilnahmebescheinigung oder einen anderen verwertbaren Nachweis erhältst.' },
+            { nr: '6', titel: 'Förderbarkeit', text: 'Falls relevant, prüfen wir, ob Hinweise auf Bildungsgutschein, AZAV-Zulassung oder andere Fördermodelle vorhanden sind. Dabei gilt: Die endgültige Förderfähigkeit hängt immer von deiner individuellen Situation und den zuständigen Stellen ab.' },
+            { nr: '7', titel: 'Flexibilität', text: 'Wir bewerten, wie gut sich ein Kurs mit Beruf, Familie oder wenig Zeit vereinbaren lässt: live, on demand, Teilzeit, Vollzeit oder selbstgesteuert.' },
+            { nr: '8', titel: 'Aktualität', text: 'KI entwickelt sich schnell. Deshalb achten wir darauf, ob ein Kurs inhaltlich aktuell wirkt und ob der Anbieter seine Inhalte regelmäßig überarbeitet.' },
+          ].map((k) => (
+            <div class="flex gap-4">
+              <span class="text-[#2563EB] font-bold text-lg shrink-0 w-6">{k.nr}.</span>
+              <div>
+                <p class="font-semibold text-gray-900">{k.titel}</p>
+                <p class="text-sm text-gray-600 mt-1 leading-relaxed">{k.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">So entsteht unsere Einschätzung</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Jeder Kurs wird anhand derselben Grundfragen geprüft: Für wen ist er geeignet? Was kostet er wirklich? Wie viel Zeit musst du einplanen? Welchen Abschluss bekommst du? Gibt es Fördermöglichkeiten? Wie praxisnah ist das Angebot? Wie leicht ist der Einstieg?
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4">
+          Aus diesen Faktoren entsteht unsere redaktionelle Einschätzung, zum Beispiel: <em>gut für Einsteiger · stark für Führungskräfte · interessant bei Förderung · eher teuer, aber umfangreich · gut zum Reinschnuppern, weniger für einen beruflichen Neustart.</em>
+        </p>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section>
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-6">
+          <h2 class="text-base font-bold text-gray-900 mb-2">Wichtiger Hinweis</h2>
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Unsere Bewertungen sind keine amtliche Zertifizierung und kein vollständiger Qualitätstest jedes einzelnen Kurses. Wir verstehen uns als unabhängige Orientierungshilfe, damit du schneller die Angebote findest, die zu deinem Bedarf passen. Bevor du buchst, solltest du dir immer zusätzlich die Anbieterseite ansehen und bei wichtigen Punkten selbst prüfen: Inhalte, Förderbedingungen, Laufzeit, Vertragsdetails, Abschluss, Betreuung.
+          </p>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">Wie wir Geld verdienen</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Einige Links auf dieser Website sind Affiliate-Links. Wenn du über so einen Link ein Angebot nutzt oder buchst, können wir eine Provision erhalten. Für dich entstehen dadurch keine zusätzlichen Kosten. Unsere Einschätzungen sollen nicht davon abhängen, ob wir eine Provision erhalten. Wir kennzeichnen diese Form der Finanzierung transparent, weil Vertrauen für uns wichtiger ist als ein schneller Klick.
+        </p>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">Wie aktuell sind die Daten?</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Wir bemühen uns, Preise, Kursmerkmale und Förderhinweise regelmäßig zu aktualisieren. Trotzdem können Anbieter ihre Informationen jederzeit ändern. Maßgeblich sind immer die aktuellen Angaben des jeweiligen Anbieters.
+        </p>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">Fehlt ein Kurs oder hat sich etwas geändert?</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Dann schreib uns gern. Wir prüfen Hinweise und aktualisieren den Vergleich, wenn neue Informationen vorliegen: <a href="mailto:kontakt@ki-kurs-vergleich.de" class="text-[#2563EB] hover:underline">kontakt@ki-kurs-vergleich.de</a>
+        </p>
+      </section>
+
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="/vergleich" class="inline-block bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+        Jetzt KI-Kurse vergleichen →
+      </a>
+    </div>
+
+  </div>
+
+</BaseLayout>
