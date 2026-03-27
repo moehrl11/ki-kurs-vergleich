@@ -270,6 +270,54 @@ const kurse = [
       <p class="text-xs text-gray-400 max-w-2xl mt-2">Wie wir vergleichen: Alle aufgeführten Kurse wurden selbst recherchiert und auf Basis öffentlich verfügbarer Anbieterinformationen bewertet. Geprüft wurden Preis, Dauer, Format, Zertifikat, Zielgruppe und Förderbarkeit über Bildungsgutschein oder QCG. Die AZAV-Zertifizierung wurde direkt auf den Anbieter-Websites verifiziert. Daten werden regelmäßig aktualisiert. <a href="/so-vergleichen-wir" class="text-[#2563EB] hover:underline">→ Mehr zur Methodik</a></p>
     </div>
 
+    <!-- Übersichtstabelle -->
+    <div class="mb-8">
+      <h2 class="text-xl font-bold text-gray-900 mb-2">Alle 15 KI-Weiterbildungen auf einen Blick</h2>
+      <p class="text-sm text-gray-500 mb-4">Nicht jede KI-Weiterbildung passt zu jedem Ziel. Manche Kurse sind ideal für Einsteiger, andere eher für Führungskräfte, Teams oder Menschen mit konkretem Umschulungswunsch.</p>
+
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm min-w-[700px]" id="uebersicht-tabelle">
+          <thead class="bg-gray-50 text-xs text-gray-500 uppercase tracking-wider">
+            <tr>
+              <th class="px-4 py-3 text-left cursor-pointer select-none hover:text-gray-800" onclick="sortTable(0)">Kurs ↕</th>
+              <th class="px-4 py-3 text-left cursor-pointer select-none hover:text-gray-800" onclick="sortTable(1)">Für wen ↕</th>
+              <th class="px-4 py-3 text-left cursor-pointer select-none hover:text-gray-800" onclick="sortTable(2)">Preis ↕</th>
+              <th class="px-4 py-3 text-left cursor-pointer select-none hover:text-gray-800" onclick="sortTable(3)">Dauer ↕</th>
+              <th class="px-4 py-3 text-left cursor-pointer select-none hover:text-gray-800" onclick="sortTable(4)">Zertifikat ↕</th>
+              <th class="px-4 py-3 text-left">Förderung</th>
+              <th class="px-4 py-3 text-left"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {kurse.map((kurs) => (
+              <tr class="hover:bg-gray-50 transition">
+                <td class="px-4 py-3">
+                  <p class="font-medium text-gray-900">{kurs.name}</p>
+                  <p class="text-xs text-gray-400">{kurs.anbieter}</p>
+                </td>
+                <td class="px-4 py-3 text-gray-600 text-xs">{kurs.zielgruppe}</td>
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">{kurs.preis}</td>
+                <td class="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">{kurs.dauer}</td>
+                <td class="px-4 py-3 text-gray-600 text-xs">{kurs.abschluss}</td>
+                <td class="px-4 py-3">
+                  {kurs.foerderbar === 'ja' && <span class="inline-block bg-[#10B981]/10 text-[#10B981] text-xs font-semibold px-2 py-0.5 rounded-full">Ja</span>}
+                  {kurs.foerderbar === 'teilweise' && <span class="inline-block bg-amber-50 text-amber-600 text-xs font-semibold px-2 py-0.5 rounded-full">Teilw.</span>}
+                  {kurs.foerderbar === 'nein' && <span class="inline-block bg-gray-100 text-gray-400 text-xs px-2 py-0.5 rounded-full">Nein</span>}
+                </td>
+                <td class="px-4 py-3">
+                  <a href={`#kurs-${kurs.id}`} class="text-[#2563EB] text-xs font-medium hover:underline whitespace-nowrap">↓ Zur Card</a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4 bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-600">
+        <strong class="text-gray-800">So liest du den Vergleich richtig:</strong> Der beste Kurs ist nicht automatisch der teuerste oder bekannteste. Entscheidend ist, welches Ziel du verfolgst — willst du erst einmal einsteigen? Brauchst du einen verwertbaren Nachweis? Suchst du etwas für den Jobwechsel? Ist Förderung für dich entscheidend? Wenn du dir unsicher bist, nutze zusätzlich unser <a href="/quiz" class="text-[#2563EB] hover:underline">Quiz</a>.
+      </div>
+    </div>
+
     <!-- Empfehlungsbox -->
     <div class="bg-[#2563EB]/5 border border-[#2563EB]/20 rounded-xl p-6 mb-8">
       <p class="text-xs font-semibold text-[#2563EB] uppercase tracking-wider mb-3">Schnellübersicht: Was passt zu mir?</p>
@@ -331,7 +379,7 @@ const kurse = [
     <!-- Kurs-Karten -->
     <div class="flex flex-col gap-4" id="kurs-liste">
       {kurse.map((kurs) => (
-        <div class="kurs-karte bg-white rounded-xl border border-gray-200 p-6 hover:border-[#2563EB] hover:shadow-sm transition" data-kategorie={kurs.kategorie} data-foerderbar={kurs.foerderbar}>
+        <div id={`kurs-${kurs.id}`} class="kurs-karte bg-white rounded-xl border border-gray-200 p-6 hover:border-[#2563EB] hover:shadow-sm transition" data-kategorie={kurs.kategorie} data-foerderbar={kurs.foerderbar}>
           <div class="flex flex-col sm:flex-row sm:items-start gap-4">
 
             <!-- Hauptinfo -->
@@ -415,6 +463,22 @@ const kurse = [
 </BaseLayout>
 
 <script is:inline>
+  var sortDir = {};
+  function sortTable(col) {
+    var table = document.getElementById('uebersicht-tabelle');
+    var tbody = table.querySelector('tbody');
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    var asc = !sortDir[col];
+    sortDir = {};
+    sortDir[col] = asc;
+    rows.sort(function(a, b) {
+      var aText = a.querySelectorAll('td')[col].textContent.trim().toLowerCase();
+      var bText = b.querySelectorAll('td')[col].textContent.trim().toLowerCase();
+      return asc ? aText.localeCompare(bText, 'de') : bText.localeCompare(aText, 'de');
+    });
+    rows.forEach(function(row) { tbody.appendChild(row); });
+  }
+
   function filterKurse(kategorie) {
     var karten = document.querySelectorAll('.kurs-karte');
     var sichtbar = 0;
