@@ -16,6 +16,8 @@ const kurse = [
     kategorie: 'kostenlos',
     highlight: 'Bestes kostenloses Einstiegsangebot — IHK-Zertifikat inklusive',
     link: 'https://course.elementsofai.com/de/',
+    einschaetzung: 'Bester Gratis-Einstieg für alle die KI wirklich verstehen wollen.',
+    nichtGeeignet: 'du einen praxisnahen Berufsabschluss oder intensive Betreuung suchst',
   },
   {
     id: 2,
@@ -31,6 +33,8 @@ const kurse = [
     kategorie: 'gefoerdert',
     highlight: '320 Unterrichtsstunden, Live-Workshops — kein Video-Friedhof',
     link: 'https://hilker-consulting.de/ki-manager-bildungsgutschein',
+    einschaetzung: 'Solider geförderter Kurs — gut für schnellen Einstieg in KI-Management.',
+    nichtGeeignet: 'du noch angestellt bist und keinen Bildungsgutschein bekommst',
   },
   {
     id: 3,
@@ -46,6 +50,8 @@ const kurse = [
     kategorie: 'gefoerdert',
     highlight: 'Max. 18 Teilnehmer — IHK-Abschluss statt eigenem Trägerzertifikat',
     link: 'https://www.skill-sprinters.de',
+    einschaetzung: 'Unser Top-Pick für geförderte KI-Kurse dank IHK-Abschluss und kleinen Gruppen.',
+    nichtGeeignet: 'du berufsbegleitend lernen willst oder keine 4 Monate Vollzeit investieren kannst',
   },
   {
     id: 4,
@@ -61,6 +67,8 @@ const kurse = [
     kategorie: 'gefoerdert',
     highlight: 'Nur 3 Stunden täglich — ideal berufsbegleitend',
     link: 'https://www.wbscodingschool.com/ki-kompakt-part-time/',
+    einschaetzung: 'Ideal für Berufstätige die sich berufsbegleitend weiterbilden wollen.',
+    nichtGeeignet: 'du einen IHK-Abschluss oder intensives Vollzeit-Programm suchst',
   },
   {
     id: 5,
@@ -76,6 +84,8 @@ const kurse = [
     kategorie: 'premium',
     highlight: 'Einer der bekanntesten deutschen Weiterbilder — hohe Arbeitgeber-Anerkennung',
     link: 'https://www.haufe-akademie.de/future-jobs-classes/ki-manager',
+    einschaetzung: 'Bekannter Name, aber teuer für den gebotenen Umfang.',
+    nichtGeeignet: 'du ein Umschulungsziel hast oder ein förderbareres Programm suchst',
   },
   {
     id: 6,
@@ -91,6 +101,8 @@ const kurse = [
     kategorie: 'premium',
     highlight: 'In 2 Tagen ein anerkanntes Zertifikat — AZAV-förderbar',
     link: 'https://xd-i.com/seminar/certified-ai-professional/',
+    einschaetzung: 'Kompaktes Zertifikat für Berufstätige die schnell einen Nachweis brauchen.',
+    nichtGeeignet: 'du tiefen technischen Einstieg oder ein langes Programm suchst',
   },
   {
     id: 7,
@@ -106,6 +118,8 @@ const kurse = [
     kategorie: 'gefoerdert',
     highlight: 'Direkte Verbindung zu Arbeitgebern, kleine Gruppen (~15 Teilnehmer)',
     link: 'https://www.neuefische.de/en/bootcamp/ai-engineering-data-science-and-machine-learning',
+    einschaetzung: 'Das intensivste Programm im Vergleich — für ernsthafte Karrierewechsler.',
+    nichtGeeignet: 'du dich nur berufsbegleitend weiterbilden möchtest oder keine Karriere in IT anstrebst',
   },
   {
     id: 8,
@@ -121,6 +135,8 @@ const kurse = [
     kategorie: 'gefoerdert',
     highlight: 'Hochschulzertifikat mit ECTS — anrechenbar auf späteres Studium',
     link: 'https://www.iu-akademie.de/weiterbildungen/ki-mit-kreativen-prompt-techniken/',
+    einschaetzung: 'Flexibelste Option für Berufstätige mit wenig Zeit.',
+    nichtGeeignet: 'du Live-Unterricht und direkte Betreuung bevorzugst',
   },
   {
     id: 9,
@@ -136,6 +152,8 @@ const kurse = [
     kategorie: 'guenstig',
     highlight: 'Günstig, sofort startbereit — ideal zum Ausprobieren',
     link: 'https://www.udemy.com/course/chatgpt-masterclass-der-komplette-kurs-fuer-beruf-und-alltag/',
+    einschaetzung: 'Perfekt für den ersten Einblick — kein Risiko, sofort startbar.',
+    nichtGeeignet: 'du einen formal anerkannten Nachweis für Bewerbungen oder Förderanträge brauchst',
   },
   {
     id: 10,
@@ -151,6 +169,8 @@ const kurse = [
     kategorie: 'guenstig',
     highlight: 'Von Andrew Ng — dem weltweit bekanntesten KI-Lehrer',
     link: 'https://www.coursera.org/learn/ai-for-everyone',
+    einschaetzung: 'Weltweit empfohlener Einstieg — besonders für englischsprachige Lernende.',
+    nichtGeeignet: 'du auf Deutsch lernen willst oder einen deutschen Arbeitsmarkt-Nachweis brauchst',
   },
   {
     id: 11,
@@ -166,6 +186,8 @@ const kurse = [
     kategorie: 'premium',
     highlight: 'Forschungsbasiertes Zertifikat von Deutschlands größter angewandter Forschungsorganisation',
     link: 'https://www.fit.fraunhofer.de/de/weiterbildung/weiterbildung-gen-ai/Weiterbildung-KI-Manager.html',
+    einschaetzung: 'Das renommierteste Zertifikat im Vergleich — für Führungskräfte mit Budget.',
+    nichtGeeignet: 'du ein geringes Budget hast oder eine geförderte Vollzeit-Umschulung suchst',
   },
   {
     id: 12,
@@ -181,6 +203,8 @@ const kurse = [
     kategorie: 'kostenlos',
     highlight: 'Direkt von Google — kostenlos, auf Deutsch, in einem Wochenende machbar',
     link: 'https://grow.google/intl/de/courses-and-tools/',
+    einschaetzung: 'Schnellster Einstieg kostenlos — direkt von Google, auf Deutsch.',
+    nichtGeeignet: 'du ein anerkanntes Zertifikat oder tiefes Fachwissen brauchst',
   },
   {
     id: 13,
@@ -196,6 +220,8 @@ const kurse = [
     kategorie: 'gefoerdert',
     highlight: 'Laptop inklusive — plus aktive Jobvermittlung nach dem Abschluss',
     link: 'https://digitalcareerinstitute.org/courses/ki-mediengestalter/',
+    einschaetzung: 'Umfangreichstes Komplettpaket inklusive Laptop und Jobvermittlung.',
+    nichtGeeignet: 'du nicht in Richtung Medien/Kreativ willst oder bereits angestellt bist',
   },
   {
     id: 14,
@@ -211,6 +237,8 @@ const kurse = [
     kategorie: 'guenstig',
     highlight: 'Weltweiter Bestseller — IBM erklärt KI für Menschen ohne IT-Hintergrund',
     link: 'https://www.coursera.org/learn/ai-for-everyone',
+    einschaetzung: 'Guter Einstieg für alle die einen bekannten Namen im Lebenslauf wollen.',
+    nichtGeeignet: 'du auf Deutsch lernen willst oder ein AZAV-zertifiziertes Programm brauchst',
   },
   {
     id: 15,
@@ -226,6 +254,8 @@ const kurse = [
     kategorie: 'kostenlos',
     highlight: 'Staatlich gefördert — die offizielle deutsche KI-Lernplattform, komplett kostenlos',
     link: 'https://ki-campus.org/courses/ki-fueralle-dfki2020',
+    einschaetzung: 'Die offizielle deutsche KI-Lernplattform — staatlich gefördert, kostenlos.',
+    nichtGeeignet: 'du ein Zertifikat mit Arbeitsmarktwert oder intensive Betreuung suchst',
   },
 ];
 ---
@@ -318,6 +348,9 @@ const kurse = [
                 <span>🎯 {kurs.zielgruppe}</span>
                 <span>📜 {kurs.abschluss}</span>
               </div>
+              <p class="text-xs text-gray-400 mt-2">
+                <span class="text-red-400 font-medium">✗ Weniger passend wenn</span> {kurs.nichtGeeignet}
+              </p>
             </div>
 
             <!-- Preis + Förderung + CTA -->
@@ -341,6 +374,7 @@ const kurse = [
                   <span class="inline-block text-gray-300 text-xs mt-1">Keine Förderung</span>
                 )}
               </div>
+              <p class="text-xs text-gray-400 italic sm:text-right">{kurs.einschaetzung}</p>
               <a
                 href={kurs.link}
                 target="_blank"
