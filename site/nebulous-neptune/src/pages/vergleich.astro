@@ -429,7 +429,7 @@ const kurse = [
                 rel="noopener noreferrer"
                 class="inline-block bg-[#2563EB] text-white text-sm font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
               >
-                Zum Anbieter →
+                {kurs.foerderbar === 'ja' ? 'Förderoptionen prüfen →' : kurs.preisNum === 0 ? 'Kostenlos starten →' : kurs.preisNum > 1000 ? 'Kursdetails ansehen →' : 'Zum Anbieter →'}
               </a>
             </div>
           </div>
